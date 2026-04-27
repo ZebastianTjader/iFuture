@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <!-- Dokumentets teckenkodning -->
+    <meta charset="UTF-8">
+    <!-- Gör sidan responsiv på olika skärmstorlekar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titel på webbsidan som visas i webbläsarfliken -->
+    <title>Jämföra priser - iFuture</title>
+    <!-- Favicon: En liten ikon i webbläsarfliken -->
+    <link rel="icon" type="images/x-icon" href="images/profile.png">
+    <!-- Google Fonts: Inter, Roboto och Montserrat -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome: Ikoner för sociala medier -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Kopplar in CSS-stilfilen -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Logotypen är klickbar och leder till startsidan -->
+        <a href="index.html" class="logo">
+            <img src="images/profile.png" alt="iFuture logotyp - gå till startsidan" width="225" height="225">
+        </a>
+        <!-- En knapp som tillåter att man kan kan ändra temat på webbsidan från mörk till ljust och tvärtom -->
+        <button class="change_color" aria-label="Byt till mörk läge">
+            🌙 Mörkt
+        </button>
+        <!-- Navigationsmeny med länkar till andra webbsidor samt en hamburgermeny för mobilskärmen -->
+        <button class="hamburger" aria-label="Öppna meny" aria-expanded="false" aria-controls="nav-menu">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <div class="nav" id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="button">Hem</a></li>
+                <li><a href="products.html" class="button">Produkter</a></li>
+                <li><a href="price_matching.html" class="button">Jämföra priser</a></li>
+                <li><a href="questions.html" class="button">Ställa frågor</a></li>
+                <li><a href="about_us.html" class="button">Om oss</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section class="price_matching-section">
+
+            <!-- Huvudrubrik -->
+            <div class="title_2">
+                <h2>Jämföra priser</h2>
+            </div>
+
+            <!-- Beskrivning av funktionen -->
+            <div class="pm-description fact">
+                <p>Sök efter en Apple-produkt nedan för att se de fem lägsta priserna från olika återförsäljare,
+                    sorterade från billigast till dyrast. Priserna hämtas via PricesAPI och uppdateras löpande.
+                    Klicka på "Gå till butik" för att gå direkt till butikens sida.</p>
+            </div>
+
+            <!-- Sökfält -->
+            <div class="search-section pm-search-section">
+                <!-- Sökrutan med sökknapp -->
+                <div class="pm-search-wrapper" role="search">
+                    <label for="pm-search-input" class="sr-only">Sök Apple-produkt</label>
+                    <input type="search" id="pm-search-input" class="search-input pm-search-input"
+                        placeholder="Sök efter en produkt, t.ex. iPhone 17 Pro..." autocomplete="off"
+                        aria-label="Sök Apple-produkt" aria-controls="pm-results" aria-autocomplete="list">
+                    <button type="button" class="pm-search-btn" id="pm-search-btn" aria-label="Sök">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Sök
+                    </button>
+                </div>
+
+                <!-- Dropdown med produktförslag -->
+                <ul class="pm-suggestions" id="pm-suggestions" role="listbox" aria-label="Produktförslag" hidden></ul>
+            </div>
+
+            <!-- Resultatsektion – fylls i av JavaScript -->
+            <section id="pm-results" aria-live="polite" aria-atomic="true">
+
+                <!-- Laddningsindikator – visas medan API-anropet pågår -->
+                <div class="pm-loading" id="pm-loading" hidden>
+                    <span class="pm-spinner" aria-hidden="true"></span>
+                    <p>Hämtar priser...</p>
+                </div>
+
+                <!-- Felmeddelande – visas om API-anropet misslyckas eller ger tomt resultat -->
+                <div class="pm-error" id="pm-error" hidden role="alert">
+                    <p id="pm-error-text"></p>
+                </div>
+
+                <!-- Produktrubrik och pristabell – fylls i dynamiskt -->
+                <div id="pm-result-content" hidden>
+                    <div class="pm-result-header">
+                        <h3 id="pm-product-name"></h3>
+                        <p class="pm-result-meta" id="pm-result-meta"></p>
+                    </div>
+
+                    <!-- Pristabell -->
+                    <div class="pm-table-wrapper">
+                        <table class="pm-table" id="pm-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Butik</th>
+                                    <th scope="col">Pris</th>
+                                    <th scope="col">Lagerstatus</th>
+                                    <th scope="col">Länk</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pm-table-body">
+                                <!-- Rader injiceras av JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Förklaringstext under tabellen -->
+                    <p class="pm-disclaimer">
+                        Priserna ovan hämtas via PricesAPI från över 100 återförsäljare globalt och uppdateras
+                        löpande. iFuture ansvarar inte för eventuella prisskillnader hos respektive återförsäljare.
+                    </p>
+                </div>
+
+            </section>
+        </section>
+    </main>
+    <footer>
+        <!-- Ikoner med länkar till IFutures sociala medier plattformar -->
+        <div class="footer-social">
+            <a href="https://x.com/?lang=sv" target="_blank" aria-label="iFuture på X"><i
+                    class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://discord.com" target="_blank" aria-label="iFuture på Discord"><i
+                    class="fa-brands fa-discord"></i></a>
+            <a href="https://tiktok.com" target="_blank" aria-label="iFuture på TikTok"><i
+                    class="fa-brands fa-tiktok"></i></a>
+            <a href="https://youtube.com" target="_blank" aria-label="iFuture på YouTube"><i
+                    class="fa-brands fa-youtube"></i></a>
+        </div>
+        <!-- Upphovsrättsstämpel och kontaktuppgifter -->
+        <p>Copyright © 2026 iFuture. Alla rättigheter förbehålls.</p>
+        <p>Kontakt: info@iFuture.se | Tel: 08-123 45 67</p>
+        <p>Följ oss på sociala medier för dem senaste nyheterna och tipsen om Apple-produkter</p>
+    </footer>
+
+    <!-- Kopplar in JavaScriptet -->
+    <script src="js/script.js"></script>
+    <!-- Kopplar in PricesAPI-logiken -->
+    <script src="js/prices_api.js"></script>
+</body>
+
+</html>

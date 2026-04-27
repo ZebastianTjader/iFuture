@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <!-- Dokumentets teckenkodning -->
+    <meta charset="UTF-8">
+    <!-- Gör sidan responsiv på olika skärmstorlekar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titel på webbsidan som visas i webbläsarfliken -->
+    <title>Ställa frågor - iFuture</title>
+    <!-- Favicon: En liten ikon i webbläsarfliken -->
+    <link rel="icon" type="images/x-icon" href="images/profile.png">
+    <!-- Google Fonts: Inter, Roboto och Montserrat -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome: Ikoner för sociala medier -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Kopplar in CSS-stilfilen -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Logotypen är klickbar och leder till startsidan -->
+        <a href="index.html" class="logo">
+            <img src="images/profile.png" alt="iFuture logotyp - gå till startsidan" width="225" height="225">
+        </a>
+        <!-- En knapp som tillåter att man kan kan ändra temat på webbsidan från mörk till ljust och tvärtom -->
+        <button class="change_color" aria-label="Byt till mörk läge">
+            🌙 Mörkt
+        </button>
+        <!-- Navigationsmeny med länkar till andra webbsidor samt en hamburgermeny för mobilskärmen -->
+        <button class="hamburger" aria-label="Öppna meny" aria-expanded="false" aria-controls="nav-menu">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <div class="nav" id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="button">Hem</a></li>
+                <li><a href="products.html" class="button">Produkter</a></li>
+                <li><a href="price_matching.html" class="button">Jämföra priser</a></li>
+                <li><a href="questions.html" class="button">Ställa frågor</a></li>
+                <li><a href="about_us.html" class="button">Om oss</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <section class="ask-questions-section">
+            <!-- Huvudrubrik -->
+            <div class="title-2">
+                <h2>Ställ din fråga:</h2>
+            </div>
+
+            <!-- Yttre wrapper för centrering -->
+            <div class="form-wrapper">
+                <!-- Yttre ruta som håller ihop hela formuläret -->
+                <div class="form-outer-box">
+
+                    <form class="question-form" id="question-form" action="/skicka" method="post">
+
+                        <!-- OM DIG -->
+                        <fieldset class="form-fieldset">
+                            <legend>Om dig</legend>
+
+                            <!-- Förnamn och efternamn i två kolumner -->
+                            <div class="form-row">
+
+                                <!-- Förnamn -->
+                                <div class="form-group">
+                                    <label for="fornamn">Förnamn: <span class="required-star"
+                                            aria-hidden="true">*</span></label>
+                                    <input type="text" id="fornamn" name="fornamn" placeholder="Ange ditt förnamn"
+                                        autocomplete="given-name" required aria-required="true"
+                                        aria-describedby="fornamn-error">
+                                    <span class="form-error" id="fornamn-error" role="alert" aria-live="polite"></span>
+                                </div>
+
+                                <!-- Efternamn -->
+                                <div class="form-group">
+                                    <label for="efternamn">Efternamn: <span class="required-star"
+                                            aria-hidden="true">*</span></label>
+                                    <input type="text" id="efternamn" name="efternamn" placeholder="Ange ditt efternamn"
+                                        autocomplete="family-name" required aria-required="true"
+                                        aria-describedby="efternamn-error">
+                                    <span class="form-error" id="efternamn-error" role="alert"
+                                        aria-live="polite"></span>
+                                </div>
+
+                            </div><!-- /form-row -->
+
+                            <!-- Kön -->
+                            <div class="form-group">
+                                <fieldset class="radio-fieldset">
+                                    <legend>Vilket kön identifierar du dig som? <span class="required-star"
+                                            aria-hidden="true">*</span></legend>
+                                    <div class="radio-group">
+                                        <label class="radio-label">
+                                            <input type="radio" name="kon" value="man" required aria-required="true">
+                                            Man
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="kon" value="kvinna">
+                                            Kvinna
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="kon" value="annat">
+                                            Annat/Vill ej ange
+                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </fieldset>
+
+                        <!-- KONTAKTUPPGIFTER -->
+                        <fieldset class="form-fieldset">
+                            <legend>Kontaktuppgifter</legend>
+
+                            <!-- E-post och telefon i två kolumner -->
+                            <div class="form-row">
+
+                                <!-- E-postadress -->
+                                <div class="form-group">
+                                    <label for="epost">E-postadress: <span class="required-star"
+                                            aria-hidden="true">*</span></label>
+                                    <input type="email" id="epost" name="epost" placeholder="namn@exempel.com"
+                                        autocomplete="email" required aria-required="true"
+                                        aria-describedby="epost-error">
+                                    <span class="form-error" id="epost-error" role="alert" aria-live="polite"></span>
+                                </div>
+
+                                <!-- Telefonnummer -->
+                                <div class="form-group">
+                                    <label for="telefonnummer">Telefonnummer: <span class="required-star"
+                                            aria-hidden="true">*</span></label>
+                                    <input type="tel" id="telefonnummer" name="telefonnummer" placeholder="0701234567"
+                                        autocomplete="tel" pattern="[0-9\s\+\-]{7,15}" required aria-required="true"
+                                        aria-describedby="phone-error phone-hint">
+                                    <span class="form-hint" id="phone-hint">Ange ett giltigt telefonnummer, såsom
+                                        0701234567.</span>
+                                    <span class="form-error" id="phone-error" role="alert" aria-live="polite"></span>
+                                </div>
+
+                            </div><!-- /form-row -->
+                        </fieldset>
+
+                        <!-- ÄRENDE -->
+                        <fieldset class="form-fieldset">
+                            <legend>Ärende</legend>
+
+                            <!-- Välj enhet -->
+                            <div class="form-group">
+                                <label for="enhet">Vilken enhet vill du veta mer om? <span class="required-star"
+                                        aria-hidden="true">*</span></label>
+                                <select id="enhet" name="enhet" required aria-required="true"
+                                    aria-describedby="device-error">
+                                    <option value="">-- Välj en enhet --</option>
+                                    <optgroup label="iPhone">
+                                        <option value="iPhone 17 Pro Max">iPhone 17 Pro Max</option>
+                                        <option value="iPhone 17 Pro">iPhone 17 Pro</option>
+                                        <option value="iPhone Air">iPhone Air</option>
+                                        <option value="iPhone 17">iPhone 17</option>
+                                        <option value="iPhone 17e">iPhone 17e</option>
+                                    </optgroup>
+                                    <optgroup label="MacBook">
+                                        <option value="MacBook Pro (M5 Pro och M5 Max)">MacBook Pro (M5 Pro och M5 Max)
+                                        </option>
+                                        <option value="MacBook Pro (M5)">MacBook Pro (M5)</option>
+                                        <option value="MacBook Air (M5)">MacBook Air (M5)</option>
+                                        <option value="MacBook Neo">MacBook Neo</option>
+                                        <option value="MacBook Air (M4)">MacBook Air (M4)</option>
+                                    </optgroup>
+                                    <optgroup label="iPad">
+                                        <option value="iPad Pro (M5)">iPad Pro (M5)</option>
+                                        <option value="iPad Air (M4)">iPad Air (M4)</option>
+                                        <option value="iPad Air (M3)">iPad Air (M3)</option>
+                                        <option value="iPad (11th gen) (A16)">iPad (11th gen) (A16)</option>
+                                    </optgroup>
+                                    <optgroup label="Display">
+                                        <option value="Studio Display XDR">Studio Display XDR</option>
+                                        <option value="Studio Display">Studio Display</option>
+                                    </optgroup>
+                                    <optgroup label="Apple Watch">
+                                        <option value="Apple Watch Series Ultra 3">Apple Watch Series Ultra 3</option>
+                                        <option value="Apple Watch Series 11">Apple Watch Series 11</option>
+                                    </optgroup>
+                                    <optgroup label="AirPods">
+                                        <option value="AirPods Pro 3">AirPods Pro 3</option>
+                                    </optgroup>
+                                </select>
+                                <span class="form-error" id="device-error" role="alert" aria-live="polite"></span>
+                            </div>
+
+                            <!-- Frågetext -->
+                            <div class="form-group">
+                                <label for="fraga" id="question-label">Vad undrar du om enheten som du har valt ovan?
+                                    <span class="required-star" aria-hidden="true">*</span></label>
+                                <textarea id="fraga" name="fraga" rows="6" placeholder="Skriv din fråga här..."
+                                    maxlength="1000" required aria-required="true"
+                                    aria-describedby="question-error question-hint"></textarea>
+                                <span class="form-hint" id="question-hint">Max 1 000 tecken.</span>
+                                <span class="form-error" id="question-error" role="alert" aria-live="polite"></span>
+                            </div>
+                        </fieldset>
+
+                        <!-- VILLKOR -->
+                        <fieldset class="form-fieldset">
+                            <legend>Villkor</legend>
+                            <div class="form-group">
+                                <p class="terms-text">Genom att skicka in din fråga godkänner du att iFuture
+                                    behandlar dina personuppgifter i syfte att besvara din förfrågan. Dina uppgifter
+                                    delas inte med tredje part och raderas när ärendet är avslutat.</p>
+                                <label class="radio-label">
+                                    <input type="checkbox" id="terms" name="terms" required aria-required="true">
+                                    Jag godkänner att iFuture behandlar mina personuppgifter. <span
+                                        class="required-star" aria-hidden="true">*</span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <!-- Obligatoriska fält-förklaring -->
+                        <p class="required-note"><span class="required-star" aria-hidden="true">*</span> Obligatoriska
+                            fält
+                        </p>
+
+                        <!-- Knappar -->
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-submit">Skicka fråga</button>
+                            <button type="reset" class="btn btn-reset">Nollställ</button>
+                        </div>
+
+                    </form>
+
+                    <!-- Bekräftelseskärm – visas efter att formuläret skickats -->
+                    <div id="question-result" style="display:none;">
+                        <h3>Tack för din fråga! ✅</h3>
+                        <p>En av våra medarbetare kommer att kontakta dig inom <strong>2 arbetsdagar</strong> via den
+                            e-postadress eller det
+                            telefonnummer du angett.</p>
+                        <div id="question-summary"></div>
+                        <!-- Knapp för att gå tillbaka till formuläret -->
+                        <button class="btn btn-back" id="btn-back">Gå tillbaka</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <!-- Ikoner med länkar till IFutures sociala medier plattformar -->
+        <div class="footer-social">
+            <a href="https://x.com/?lang=sv" target="_blank" aria-label="iFuture på X"><i
+                    class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://discord.com" target="_blank" aria-label="iFuture på Discord"><i
+                    class="fa-brands fa-discord"></i></a>
+            <a href="https://tiktok.com" target="_blank" aria-label="iFuture på TikTok"><i
+                    class="fa-brands fa-tiktok"></i></a>
+            <a href="https://youtube.com" target="_blank" aria-label="iFuture på YouTube"><i
+                    class="fa-brands fa-youtube"></i></a>
+        </div>
+        <!-- Upphovsrättsstämpel och kontaktuppgifter -->
+        <p>Copyright © 2026 iFuture. Alla rättigheter förbehålls.</p>
+        <p>Kontakt: info@iFuture.se | Tel: 08-123 45 67</p>
+        <p>Följ oss på sociala medier för dem senaste nyheterna och tipsen om Apple-produkter</p>
+    </footer>
+
+    <!-- Kopplar in JavaScriptet -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

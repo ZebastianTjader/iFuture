@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <!-- Dokumentets teckenkodning -->
+    <meta charset="UTF-8">
+    <!-- Gör sidan responsiv på olika skärmstorlekar -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titel på webbsidan som visas i webbläsarfliken -->
+    <title>Hem - iFuture</title>
+    <!-- Favicon: En liten ikon i webbläsarfliken -->
+    <link rel="icon" type="images/x-icon" href="images/profile.png">
+    <!-- Google Fonts: Inter, Roboto och Montserrat -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome: Ikoner för sociala medier -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Kopplar in CSS-stilfilen -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <!-- Logotypen är klickbar och leder till startsidan -->
+        <a href="index.html" class="logo">
+            <img src="images/profile.png" alt="iFuture logotyp - gå till startsidan" width="225" height="225">
+        </a>
+        <!-- En knapp som tillåter att man kan kan ändra temat på webbsidan från mörk till ljust och tvärtom -->
+        <button class="change_color" aria-label="Byt till mörk läge">
+            🌙 Mörkt
+        </button>
+        <!-- Navigationsmeny med länkar till andra webbsidor samt en hamburgermeny för mobilskärmen -->
+        <button class="hamburger" aria-label="Öppna meny" aria-expanded="false" aria-controls="nav-menu">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+        <div class="nav" id="nav-menu">
+            <ul>
+                <li><a href="index.html" class="button">Hem</a></li>
+                <li><a href="products.html" class="button">Produkter</a></li>
+                <li><a href="price_matching.html" class="button">Jämföra priser</a></li>
+                <li><a href="questions.html" class="button">Ställa frågor</a></li>
+                <li><a href="about_us.html" class="button">Om oss</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <!-- INFORMATION OM iFUTURE -->
+        <section class="info-section">
+            <div class="title_2">
+                <h2>Information:</h2>
+            </div>
+            <div class="fact">
+                <p>Välkommen till <strong>iFuture</strong> - din oberoende <strong>guide</strong> till Apples senaste
+                    produkter. Vi är ett team av <strong>Apple-experter</strong> som brinner för att ge dig
+                    <strong>tydlig, objektiv</strong> och <strong>lättförståelig information</strong> om
+                    alla <a href="products.html"><strong>Apple-produkter</strong></a> från <strong>2025</strong> och
+                    <strong>2026</strong>. Hos oss hittar du ärliga <strong>produktbeskrivningar</strong> utan
+                    reklamspråk,
+                    <strong>prisjämförelser</strong> mellan
+                    återförsäljare och möjligheten att <a href="questions.html"><strong>ställa frågor</strong></a>
+                    direkt till våra experter. Vårt <strong>mål</strong> är enkelt: Att hjälpa dig att hitta rätt
+                    <strong>Apple-produkt</strong> till rätt <strong>pris</strong>, anpassad just efter dina
+                    <strong>behov</strong>.
+                </p>
+            </div>
+        </section>
+
+        <!-- NYHETER -->
+        <section class="news-section">
+            <div class="title_2">
+                <h2>Nyheter:</h2>
+            </div>
+            <div class="products-row">
+
+                <!-- Nyhetskort 1 -->
+                <div class="product-item">
+                    <div class="title_3">
+                        <h3>MacBook Neo nu tillagd!</h3>
+                    </div>
+                    <div class="fact">
+                        <p>Vi har precis lagt upp fullständig information om Apples nyaste och mest prisvärda
+                            bärbara
+                            dator - MacBook Neo. Kolla in alla specifikationer, priser och var du köper den
+                            billigast
+                            under fliken Produkter.
+                        </p>
+                        <p>2026-03-05</p>
+                    </div>
+                    <!-- Emoji-markering, funktionalitet implementeras i vecka 17 med JavaScript -->
+                    <button class="btn btn-emoji" data-id="nyhet-1" aria-label="Markera nyhet som läst">✓</button>
+                </div>
+
+                <!-- Nyhetskort 2 -->
+                <div class="product-item">
+                    <div class="title_3">
+                        <h3>iPhone 17e - nu med MagSafe!</h3>
+                    </div>
+                    <div class="fact">
+                        <p>Apple har officiellt lanserat iPhone 17e och vi har redan laddat upp all information om
+                            den. För första gången stöder en "e"-modell MagSafe-laddning. Läs mer om vad det
+                            innebär för dig under fliken Produkter.
+                        </p>
+                        <p>2026-03-03</p>
+                    </div>
+                    <!-- Emoji-markering, funktionalitet implementeras i vecka 17 med JavaScript -->
+                    <button class="btn btn-emoji" data-id="nyhet-2" aria-label="Markera nyhet som läst">✓</button>
+                </div>
+
+                <!-- Nyhetskort 3 -->
+                <div class="product-item">
+                    <div class="title_3">
+                        <h3>Ny expert har anslutit till iFuture!</h3>
+                    </div>
+                    <div class="fact">
+                        <p>Vi hälsar Adam Lindqvist välkommen till vårt team! Adam har över fem års erfarenhet av
+                            Apple-produkter och kommer att besvara era frågor om iPhone- och iPad-serien. Ställ
+                            dina frågor till Adam under fliken Ställa frågor.
+                        </p>
+                        <p>2026-02-28</p>
+                    </div>
+                    <!-- Emoji-markering, funktionalitet implementeras i vecka 17 med JavaScript -->
+                    <button class="btn btn-emoji" data-id="nyhet-3" aria-label="Markera nyhet som läst">✓</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- REKOMMENDERADE PRODUKTER -->
+        <section class="products-section">
+            <div class="title_2">
+                <h2>Rekommenderade produkter:</h2>
+            </div>
+            <div class="products-row">
+
+                <!-- Produktkort: iPhone 17 Pro -->
+                <div class="product-item">
+                    <div class="title_3">
+                        <h3>iPhone 17 Pro</h3>
+                    </div>
+                    <div class="fact">
+                        <p>Denna toppmodell från Apple erbjuder en proffsig kamerauppsättning med tre 48 MP-Fusion
+                            sensorer och en optisk zoom upp till 8x, vilket är något som hittills inte funnits i
+                            någon
+                            iPhone tidigare. Den har ett unibody-hölje i varmpressat aluminium vilket ger en hög
+                            tålighet. Tillsammans med det nya A19 Pro-chippet och stöd för avancerade arbetsflöden
+                            riktar den sig till både innehållsskapare och krävande användare.
+                        </p>
+                        <!-- Specifikationer -->
+                        <div class="product-specs" id="specs-1">
+                            <p class="specs-title">Funktioner:</p>
+                            <ul>
+                                <li>6,3″ Super Retina XDR OLED-skärm med upplösningen 2 622 × 1 206 pixlar.</li>
+                                <li>A19 Pro-chip med ångkylning och hög kontinuerlig prestanda.</li>
+                                <li>Trippelkamerasystem: 48 MP huvud + ultra-vidvinkel + telefoto med upp till 8x optisk
+                                    zoom.
+                                </li>
+                                <li>Unibody-design i varmpressat aluminium, Ceramic Shield 2-front och IP68-klassad
+                                    vattentålighet.</li>
+                                <li>Batteritid upp till 31 timmars videouppspelning, 50 % på ca 20 min snabbladdning.
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Bild och knappar -->
+                        <div class="product-bottom">
+                            <img src="images/iphone_17_pro_2025.webp" alt="iPhone 17 Pro" width="676" height="837"
+                                loading="lazy">
+                            <div class="product-buttons">
+                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-1">Läs
+                                    mer</button>
+                                <a href="https://www.apple.com/se/iphone-17-pro/" target="_blank" class="btn">Köp hos
+                                    Apple: Från 14
+                                    995 kr</a>
+                                <a href="price_matching.html" class="btn">Jämför priser</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produktkort: iPad Air (M4) -->
+                <div class="product-item">
+                    <div class="title_3">
+                        <h3>iPad Air (M4)</h3>
+                    </div>
+                    <div class="fact">
+                        <p>iPad Air 2026 uppgraderas till Apples M4-chip. Minnet ökas från 8 GB till 12 GB, vilket
+                            ger
+                            smidigare multitasking och bättre förutsättningar för Apples AI-funktioner. Designen och
+                            startpriset är oförändrade, vilket gör den till ett utmärkt val för den som vill ha
+                            kraftfull prestanda i ett lätt och tunt format.
+                        </p>
+                        <!-- Specifikationer -->
+                        <div class="product-specs" id="specs-2">
+                            <p class="specs-title">Funktioner:</p>
+                            <ul>
+                                <li>M4-chip med 8-kärnig CPU, 9-kärnig GPU och 16-kärnig Neural Engine - upp till 30 %
+                                    snabbare
+                                    än M3-modellen.</li>
+                                <li>11″ eller 13″ Liquid Retina-skärm med True Tone och P3 wide color.</li>
+                                <li>12 GB unified memory (upp från 8 GB) med 120 GB/s minnesbandbredd.</li>
+                                <li>Lagring från 128 GB (upp till 1 TB), stöder Apple Pencil Pro och Magic Keyboard.
+                                </li>
+                                <li>Wi-Fi 7 och Bluetooth 6 via Apples N1-chip, cellulära modeller har C1X-modem.</li>
+                                <li>Tunn (6,1 mm) och lätt (~462 g för 11-tums Wi-Fi-modellen).</li>
+                                <li>Tillgänglig i "Space Gray", "Blue", "Purple" och "Starlight". Stöd för Apple
+                                    Intelligence.</li>
+                            </ul>
+                        </div>
+                        <!-- Bild och knappar -->
+                        <div class="product-bottom">
+                            <img src="images/ipad_air_m4_2026.webp" alt="iPad Air med M4-chip" width="664" height="819"
+                                loading="lazy">
+                            <div class="product-buttons">
+                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-2">Läs
+                                    mer</button>
+                                <a href="https://www.apple.com/se/ipad-air/" target="_blank" class="btn">Köp hos Apple:
+                                    Från 7 795
+                                    kr</a>
+                                <a href="price_matching.html" class="btn">Jämför priser</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produktkort: MacBook Neo -->
+                <div class="product-item">
+                    <div class="title_3">
+                        <h3>MacBook Neo</h3>
+                    </div>
+                    <div class="fact">
+                        <p>MacBook Neo är Apples billigaste bärbara dator någonsin och riktar sig till studenter och
+                            vardagsanvändare som vill ha Mac-upplevelsen till ett överraskande lågt pris. Det är
+                            också
+                            den första Mac-datorn som drivs av ett A-seriens chip "A18 Pro", alltså samma chip som
+                            finns
+                            i iPhone 16 Pro. Den kommer i fyra livliga färger och erbjuder upp till 16 timmars
+                            batteritid samt full kompatibilitet med macOS och Apple Intelligence.
+                        </p>
+                        <!-- Specifikationer -->
+                        <div class="product-specs" id="specs-3">
+                            <p class="specs-title">Funktioner:</p>
+                            <ul>
+                                <li>A18 Pro-chip med 6-kärnig CPU och 5-kärnig GPU samt 16-kärnig Neural Engine.</li>
+                                <li>13″ Liquid Retina-skärm med 2 408 × 1 506 pixlars upplösning och 500 nits
+                                    ljusstyrka.</li>
+                                <li>8 GB unified memory och 256 GB lagring i basmodellen (512 GB-modell med Touch ID
+                                    tillgänglig).</li>
+                                <li>Upp till 16 timmars batteritid vid webbanvändning.</li>
+                                <li>Hållbart aluminiumhölje i återvunnet material, tillgänglig i färgerna "Silver",
+                                    "Blush",
+                                    "Citrus" och "Indigo".</li>
+                                <li>Två USB-C-portar (en USB 3, en USB 2) samt hörlursuttag. Wi-Fi 6E och Bluetooth 6.
+                                </li>
+                                <li>Fullt stöd för macOS Tahoe och Apple Intelligence.</li>
+                            </ul>
+                        </div>
+                        <!-- Bild och knappar -->
+                        <div class="product-bottom">
+                            <img src="images/macbook_neo_2026.webp" alt="MacBook Neo" width="640" height="390"
+                                loading="lazy">
+                            <div class="product-buttons">
+                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-3">Läs
+                                    mer</button>
+                                <a href="https://www.apple.com/se/macbook-neo/" target="_blank" class="btn">Köp hos
+                                    Apple: Från 7 995
+                                    kr</a>
+                                <a href="price_matching.html" class="btn">Jämför priser</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <!-- Ikoner med länkar till IFutures sociala medier plattformar -->
+        <div class="footer-social">
+            <a href="https://x.com/?lang=sv" target="_blank" aria-label="iFuture på X"><i
+                    class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://discord.com" target="_blank" aria-label="iFuture på Discord"><i
+                    class="fa-brands fa-discord"></i></a>
+            <a href="https://tiktok.com" target="_blank" aria-label="iFuture på TikTok"><i
+                    class="fa-brands fa-tiktok"></i></a>
+            <a href="https://youtube.com" target="_blank" aria-label="iFuture på YouTube"><i
+                    class="fa-brands fa-youtube"></i></a>
+        </div>
+        <!-- Upphovsrättsstämpel och kontaktuppgifter -->
+        <p>Copyright © 2026 iFuture. Alla rättigheter förbehålls.</p>
+        <p>Kontakt: info@iFuture.se | Tel: 08-123 45 67</p>
+        <p>Följ oss på sociala medier för dem senaste nyheterna och tipsen om Apple-produkter</p>
+    </footer>
+
+    <!-- Kopplar in JavaScriptet -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

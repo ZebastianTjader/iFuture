@@ -1,0 +1,2516 @@
+/* ============================================================
+   iFuture – style.css
+   Webbutveckling 1 | Vecka 12: CSS grunddesign
+
+   TYPSNITT:
+   - 'Nunito'  – displaytypsnitt för rubriker (h1–h3)
+   - 'DM Sans' – brödtexttypsnitt för all övrig text
+
+   FÄRGER (Apple.com-inspirerade):
+   - #f5f5f7  Ljusgrå      – bakgrundsfärg för body och main
+   - #ffffff  Vit           – kortbakgrunder, fakta-boxar och header
+   - #f0f0f5  Ljusgrå      – alternativ yta för produktkort
+   - #1c1c1e  Nästan svart  – primär textfärg
+   - #3a3a3c  Mörkgrå       – sekundär textfärg
+   - #6e6e73  Grå           – footer-text
+   - #d2d2d7  Ljusgrå       – kantlinjer och avdelare
+   - #0071e3  Apple-blå     – primärknapp och accentfärg
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   1. GRUNDSTILAR (Reset och Global)
+   ------------------------------------------------------------ */
+
+/* Nollställer alla element i alla webbläsare */
+* {
+    /* Tar bort standardmarginaler */
+    margin: 0;
+    /* Tar bort standardpadding */
+    padding: 0;
+    /* Gör att padding och border ingår i elementets totala bredd/höjd */
+    box-sizing: border-box;
+}
+
+/* Grundstil för hela webbsidan */
+body {
+    /* Ljusgrå bakgrundsfärg – Apples standardbakgrund */
+    background-color: #f5f5f7;
+    /* Nästan svart textfärg */
+    color: #1c1c1e;
+    /* Brödtexttypsnitt för hela sidan */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+}
+
+/* Samtliga rubriker */
+h1,
+h2,
+h3 {
+    /* Displaytypsnitt för alla rubriker */
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+}
+
+/* Samtliga stycken */
+p {
+    /* Brödtexttypsnitt för stycken */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Mörkgrå textfärg */
+    color: #3a3a3c;
+    /* Radavstånd för god läsbarhet */
+    line-height: 1.6;
+}
+
+/* Listor – tar bort bullets globalt */
+ul {
+    /* Tar bort bullets på listor */
+    list-style: none;
+}
+
+/* Samtliga bilder */
+img {
+    /* Bilden får aldrig vara bredare än sin behållare */
+    max-width: 100%;
+    /* Höjden anpassas automatiskt */
+    height: auto;
+    /* Tar bort oönskat mellanrum under bilder */
+    display: block;
+}
+
+/* Samtliga länkar */
+a {
+    /* Mörkgrå textfärg på alla länkar som standard */
+    color: #1c1c1e;
+    /* Tar bort understrykning på länkar */
+    text-decoration: none;
+}
+
+
+/* ------------------------------------------------------------
+   2. HEADER
+      En horisontell rad: logotyp till vänster,
+      nav i mitten och mörkt-knapp till höger.
+      Logotypen är klickbar och leder till startsidan.
+      .name är dold via CSS men bevarad i HTML.
+   ------------------------------------------------------------ */
+
+/* Header-container – en horisontell rad */
+header {
+    /* Vit bakgrundsfärg */
+    background-color: #ffffff;
+    /* Subtil grå linje längst ner */
+    border-bottom: 1px solid #d2d2d7;
+    /* Flexbox för horisontell layout */
+    display: flex;
+    /* Logotyp till vänster, nav i mitten, knapp till höger */
+    justify-content: space-between;
+    /* Centrerar innehållet vertikalt */
+    align-items: center;
+    /* Inre utfyllnad runt hela headern */
+    padding: 12px 24px;
+}
+
+/* Logotypen – klickbar länk till startsidan */
+.logo {
+    /* Tar bort länkstil */
+    text-decoration: none;
+    /* Flexbox för att centrera bilden vertikalt */
+    display: flex;
+    /* Centrerar vertikalt */
+    align-items: center;
+    /* Placering i flexbox där 1 innebär att logotypen kommer först */
+    order: 1;
+}
+
+/* Logotypbilden */
+.logo img {
+    /* Fast bredd på logotypen */
+    width: 48px;
+    /* Fast höjd på logotypen */
+    height: 48px;
+    /* Gör logotypen rund */
+    border-radius: 50%;
+}
+
+/* Döljer webbplatsnamnet "iFuture" – logotypen räcker */
+.name {
+    /* Döljer elementet helt utan att ta bort det från HTML */
+    display: none;
+}
+
+/* Navigationsmeny med alla sidalänkar */
+.nav {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Placering i flexbox där navigationsmenyn kommer efter logotypen, alltså på andra platsen */
+    order: 2;
+}
+
+/* Lista med navigationslänkar */
+.nav ul {
+    /* Flexbox för horisontell rad */
+    display: flex;
+    /* Radbrytning inaktiveras – alla knappar på samma rad */
+    flex-wrap: nowrap;
+    /* Centrerar länkarna */
+    justify-content: center;
+    /* Avstånd mellan länkarna */
+    gap: 8px;
+}
+
+/* Enskilda navigationslänkar – Apple-stil pill-knappar */
+.nav a.button {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 0.9rem;
+    /* Mörkgrå textfärg */
+    color: #1c1c1e;
+    /* Genomskinlig bakgrund */
+    background-color: transparent;
+    /* Subtil grå kantlinje */
+    border: 1px solid #d2d2d7;
+    /* Pill-form */
+    border-radius: 980px;
+    /* Inre utfyllnad */
+    padding: 8px 16px;
+    /* Tar bort understrykning */
+    text-decoration: none;
+    /* Hindrar texten från att radbryta */
+    white-space: nowrap;
+}
+
+/* Knapp för att byta mellan mörkt och ljust läge */
+.change_color {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 0.9rem;
+    /* Mörkgrå textfärg */
+    color: #1c1c1e;
+    /* Genomskinlig bakgrund */
+    background-color: transparent;
+    /* Subtil grå kantlinje */
+    border: 1px solid #d2d2d7;
+    /* Pill-form */
+    border-radius: 980px;
+    /* Inre utfyllnad */
+    padding: 8px 16px;
+    /* Markören ändras till en hand vid hover */
+    cursor: pointer;
+    /* Hindrar texten från att radbryta */
+    white-space: nowrap;
+    /* Flexbox-ordning där knappen placeras efter logotypen och navigationsmenyn, alltså på den tredje platsen */
+    order: 3;
+}
+
+
+/* ------------------------------------------------------------
+   3. MAIN – GEMENSAMMA SEKTIONSSTILAR
+   ------------------------------------------------------------ */
+
+/* Huvudinnehållet på alla sidor */
+main {
+    /* Maxbredd för innehållet */
+    max-width: 1200px;
+    /* Centrerar main-elementet horisontellt */
+    margin: 0 auto;
+    /* Inre utfyllnad runt innehållet */
+    padding: 32px 24px 48px;
+}
+
+/* Sektionsrubrik (h2) */
+.title_2 h2 {
+    /* Displaytypsnitt */
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    /* Stor textstorlek */
+    font-size: 1.5rem;
+    /* Fetstil */
+    font-weight: 700;
+    /* Nästan svart textfärg */
+    color: #1c1c1e;
+    /* Centrerad rubrik */
+    text-align: center;
+    /* Avstånd ovanför rubriken */
+    margin-top: 5px;
+    /* Avstånd nedanför rubriken */
+    margin-bottom: 16px;
+}
+
+/* Underrubrik för produktkategorier (h3 i .title_2) */
+.title_2 h3 {
+    /* Displaytypsnitt */
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 1.1rem;
+    /* Halvfet stil */
+    font-weight: 600;
+    /* Mörkgrå textfärg */
+    color: #3a3a3c;
+    /* Centrerad underrubrik */
+    text-align: center;
+    /* Avstånd ovanför */
+    margin-top: 20px;
+    /* Avstånd nedanför */
+    margin-bottom: 12px;
+}
+
+/* Horisontell avdelare */
+.underline {
+    /* En subtil grå linje */
+    border-bottom: 1px solid #d2d2d7;
+    /* Avstånd ovanför linjen */
+    margin-top: 10px;
+    /* Centrerar linjen */
+    margin-left: auto;
+    /* Centrerar linjen */
+    margin-right: auto;
+}
+
+/* Korten i about-contact-sektionen tar lika mycket plats */
+.about-contact-section .product-item {
+    /* Varje kort tar lika stor del av bredden */
+    flex: 1;
+}
+
+/* Länkar inuti faktaboxen */
+.fact a {
+    /* Tar bort standard-understrykningen från länkar */
+    text-decoration: none;
+
+    /* Sätter länkens färg till blå */
+    color: #0071e3;
+
+    /* Gör det möjligt att positionera pseudo-element relativt till länken */
+    position: relative;
+}
+
+/* Skapar en animerad underline med ett pseudo-element */
+.fact a::after {
+    /* Krävs för att pseudo-elementet ska visas */
+    content: "";
+
+    /* Positionerar linjen i förhållande till länken */
+    position: absolute;
+
+    /* Startar från vänster kant */
+    left: 0;
+
+    /* Placerar linjen strax under texten */
+    bottom: -2px;
+
+    /* Gör linjen lika bred som texten */
+    width: 100%;
+
+    /* Bestämmer linjens tjocklek */
+    height: 2px;
+
+    /* Använder samma färg som texten */
+    background-color: currentColor;
+
+    /* Börjar med att linjen är osynlig (0 i bredd via skala) */
+    transform: scaleX(0);
+
+    /* Animerar förändringen av skalan */
+    transition: transform 0.3s ease;
+
+    /* Gör att animationen startar från vänster */
+    transform-origin: left;
+}
+
+/* När användaren håller musen över länken */
+.fact a:hover::after {
+    /* Linjen växer till full bredd */
+    transform: scaleX(1);
+}
+
+/* Tar bort understrykningsanimation från .btn-knappar inuti faktaboxar */
+.fact a.btn::after {
+    display: none;
+}
+
+/* Avstånd mellan stycken i faktaboxar */
+.fact p+p {
+    /* Avstånd ovanför varje stycke som följer efter ett annat */
+    margin-top: 12px;
+}
+
+/* Länkar i faktaboxen i dark mode */
+body.dark-mode .fact a {
+    /* Ändrar färgen till ljusare blå för bättre kontrast */
+    color: #4da3ff;
+}
+
+/* Fakta-box – informationstext på startsidan */
+.fact {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Mörkgrå textfärg */
+    color: #3a3a3c;
+    /* Yttre marginal */
+    margin: 5px;
+    /* Rundade hörn */
+    border-radius: 10px;
+    /* Inre utfyllnad */
+    padding: 15px 20px;
+    /* Vit bakgrundsfärg */
+    background-color: #ffffff;
+    /* En mjuk skugga */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Rad med produktkort och nyheter via Flexbox */
+.products-row {
+    /* Flexbox för horisontell layout av korten */
+    display: flex;
+    /* Avstånd mellan korten */
+    gap: 20px;
+    /* Centrerar korten horisontellt */
+    justify-content: center;
+    /* Bryter till ny rad när utrymmet tar slut */
+    flex-wrap: wrap;
+    /* Jämnar ut höjden på alla kort */
+    align-items: stretch;
+    /* Maxbredd – tre kort à 360px + marginaler + gap = ca 1180px */
+    max-width: 1180px;
+    /* Centrerar raden i main */
+    margin-left: auto;
+    /* Centrerar raden i main */
+    margin-right: auto;
+}
+
+/* Enskilt produkt- eller nyhetskort – tre per rad på desktop */
+.product-item {
+    /* Flexbox för vertikal layout inuti kortet */
+    display: flex;
+    /* Staplar innehållet i kortet vertikalt */
+    flex-direction: column;
+    /* Växer och krymper lika – grunden för tre per rad */
+    flex: 1 1 0;
+    /* Minsta bredd – under denna bryts till färre per rad */
+    min-width: 280px;
+    /* Maxbredd – håller korten lagom breda */
+    max-width: 360px;
+    /* Yttre marginal runt boxarna */
+    margin: 10px;
+    /* Rundade hörn */
+    border-radius: 10px;
+    /* Inre utfyllnad */
+    padding: 10px;
+    /* Ljusgrå bakgrundsfärg */
+    background-color: #f0f0f5;
+    /* En mjuk skugga */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Produktkortsrubrik (h3 i .title_3) */
+.title_3 h3 {
+    /* Displaytypsnitt */
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    /* Indrag till vänster */
+    margin-left: 7px;
+    /* Avstånd nedanför rubriken */
+    margin-bottom: 8px;
+}
+
+/* Fakta-box inuti produktkortet – beskrivningstext */
+.product-item .fact {
+    /* Tar tillgänglig höjd – fyller utrymmet i kortet */
+    flex: 1;
+    /* Avstånd nedanför fakta-boxen till nästa box */
+    margin-bottom: 6px;
+}
+
+/* Specifikationsbox och fakta-box lika höga via flex på product-item */
+.product-item .product-specs {
+    /* Litet mellanrum ovanför specifikationsboxen */
+    margin-top: 6px;
+    /* Tar tillgänglig höjd */
+    flex: 1;
+}
+
+
+/* ------------------------------------------------------------
+   4. PRODUKTKORT – BILD OCH KNAPPAR
+      Bild på egen rad, knappar staplade under.
+      Allt inuti .fact-boxen så det hålls ihop.
+   ------------------------------------------------------------ */
+
+/* Nedre del av produktkortet: bild ovanför, knappar under */
+.product-bottom {
+    /* Flexbox för vertikal layout */
+    display: flex;
+    /* Bild ovanför, knappar under */
+    flex-direction: column;
+    /* Avstånd mellan bild och knappar */
+    gap: 10px;
+    /* Tunn grå linje som separerar från beskrivningstexten */
+    border-top: 1px solid #d2d2d7;
+    /* Avstånd ovanför linjen */
+    margin-top: 12px;
+    /* Inre utfyllnad ovanför linjen */
+    padding-top: 12px;
+}
+
+/* Produktbild – tar full bredd inuti boxen */
+.product-bottom img {
+    /* Full bredd */
+    width: 100%;
+    /* Fast höjd */
+    height: 180px;
+    /* Bilden passar inuti utan att beskäras */
+    object-fit: contain;
+    /* Rundade hörn */
+    border-radius: 8px;
+    /* Vit bakgrundsfärg bakom bilden */
+    background-color: #ffffff;
+    /* Inre utfyllnad runt bilden */
+    padding: 10px;
+}
+
+/* Container för knappar under bilden */
+.product-buttons {
+    /* Flexbox för vertikalt staplade knappar */
+    display: flex;
+    /* Staplar knapparna vertikalt */
+    flex-direction: column;
+    /* Avstånd mellan knapparna */
+    gap: 8px;
+}
+
+/* Specifikationsbox (Funktioner:) */
+.product-specs {
+    /* Yttre marginal */
+    margin: 5px;
+    /* Rundade hörn */
+    border-radius: 10px;
+    /* Inre utfyllnad */
+    padding: 15px 20px;
+    /* Vit bakgrundsfärg */
+    background-color: #ffffff;
+    /* En mjuk skugga */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Rubriken "Funktioner:" ovanför listan */
+.specs-title {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Halvfet stil */
+    font-weight: 600;
+    /* Nästan svart textfärg */
+    color: #1c1c1e;
+    /* Avstånd nedanför rubriken */
+    margin-bottom: 8px;
+}
+
+/* Specifikationslistan */
+.product-specs ul {
+    /* Lägger tillbaka bullets */
+    list-style: disc;
+    /* Indrag till vänster för att bullets ska synas */
+    padding-left: 20px;
+}
+
+/* Enskilda punkter i specifikationslistan */
+.product-specs li {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Liten textstorlek */
+    font-size: 0.88rem;
+    /* Mörkgrå textfärg */
+    color: #3a3a3c;
+    /* Radavstånd */
+    line-height: 1.6;
+    /* Avstånd nedanför varje punkt */
+    margin-bottom: 3px;
+}
+
+
+/* ------------------------------------------------------------
+   5. KNAPPAR – APPLE-STIL
+      Pill-form, sekundärknapp (outline) och
+      primärknapp (fylld blå för Köp hos Apple).
+   ------------------------------------------------------------ */
+
+/* Gemensam bas för alla knappar med klassen .btn */
+.btn {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 0.85rem;
+    /* Halvfet stil */
+    font-weight: 500;
+    /* Inre utfyllnad */
+    padding: 9px 16px;
+    /* Pill-form */
+    border-radius: 980px;
+    /* Tar bort understrykning */
+    text-decoration: none;
+    /* Gör länken till ett block */
+    display: block;
+    /* Centrerad text */
+    text-align: center;
+    /* Hindrar texten från att radbryta */
+    white-space: nowrap;
+    /* Sekundärknapp: outline-stil */
+    background-color: transparent;
+    /* Apple-blå textfärg */
+    color: #0071e3;
+    /* Apple-blå kantlinje */
+    border: 1px solid #0071e3;
+}
+
+/* Primärknapp – "Köp hos Apple" identifieras via target="_blank" */
+.btn[target="_blank"] {
+    /* Fylld Apple-blå bakgrundsfärg */
+    background-color: #0071e3;
+    /* Vit textfärg */
+    color: #ffffff;
+    /* Kantlinje matchar bakgrundsfärgen */
+    border: 1px solid #0071e3;
+}
+
+/* Emoji-markeringsknapp på nyhetskortet */
+.btn-emoji {
+    /* Placeras i vänsterkanten av kortet */
+    align-self: flex-start;
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Genomskinlig bakgrund */
+    background-color: transparent;
+    /* Mörkgrå textfärg */
+    color: #1c1c1e;
+    /* Subtil grå kantlinje */
+    border: 1px solid #d2d2d7;
+    /* Pill-form */
+    border-radius: 980px;
+    /* Inre utfyllnad */
+    padding: 6px 14px;
+    /* Textstorlek */
+    font-size: 0.9rem;
+    /* Markören ändras till en hand */
+    cursor: pointer;
+}
+
+
+/* ------------------------------------------------------------
+   6. index.html – STARTSIDAN
+   ------------------------------------------------------------ */
+
+/* Informationssektionen */
+.info-section {
+    /* Avstånd nedanför sektionen */
+    margin-bottom: 28px;
+}
+
+/* Nyhetssektionen */
+.news-section {
+    /* Avstånd nedanför sektionen */
+    margin-bottom: 28px;
+}
+
+/* Rekommenderade produkter-sektionen */
+.products-section {
+    /* Avstånd nedanför sektionen */
+    margin-bottom: 28px;
+}
+
+
+/* ------------------------------------------------------------
+   7. products.html – PRODUKTSIDAN
+   ------------------------------------------------------------ */
+
+/* Container för sökfältet */
+.search-section {
+    /* Centrerar sökfältet */
+    text-align: center;
+    /* Avstånd nedanför sökfältet */
+    margin-bottom: 24px;
+}
+
+/* Sökfältet */
+.search-input {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 0.95rem;
+    /* Nästan svart textfärg */
+    color: #1c1c1e;
+    /* Vit bakgrundsfärg */
+    background-color: #ffffff;
+    /* Subtil grå kantlinje */
+    border: 1px solid #d2d2d7;
+    /* Pill-form */
+    border-radius: 999px;
+    /* Inre utfyllnad */
+    padding: 10px 20px;
+    /* Full bredd upp till maxbredden */
+    width: 100%;
+    /* Maxbredd */
+    max-width: 600px;
+    /* En mjuk skugga */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ------------------------------------------------------------
+   8. price_matching.html – JÄMFÖRA PRISER-SIDAN
+      Innehåll implementeras i vecka 17 med JavaScript.
+   ------------------------------------------------------------ */
+
+/* Container för sektionen */
+.price_matching-section {
+    /* Avstånd nedanför sektionen */
+    margin-bottom: 28px;
+}
+
+/* ============================================================
+   TILLÄGG TILL style.css – Sektion 8: price_matching.html
+   Klistra in detta block under den befintliga kommentaren
+   "8. price_matching.html – JÄMFÖRA PRISER-SIDAN"
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   8. price_matching.html – JÄMFÖRA PRISER-SIDAN
+   ------------------------------------------------------------ */
+
+/* Container för sektionen */
+.price_matching-section {
+    /* Avstånd nedanför sektionen */
+    margin-bottom: 28px;
+}
+
+/* Beskrivningstext ovanför sökfältet */
+.pm-description {
+    /* Maxbredd för läsbarhet */
+    max-width: 700px;
+    /* Centrerar texten horisontellt */
+    margin-left: auto;
+    margin-right: auto;
+    /* Avstånd nedanför */
+    margin-bottom: 28px;
+    /* Centrerar texten */
+    text-align: center;
+}
+
+/* Sökfält-sektionen för prisjämförelsewebbsidan */
+.pm-search-section {
+    /* Avstånd nedanför sökfältet */
+    margin-bottom: 32px;
+    /* Centrerar innehållet */
+    text-align: center;
+    /* Positionering för dropdown */
+    position: relative;
+}
+
+/* Wrapper för sökfält + sökknapp */
+.pm-search-wrapper {
+    /* Flexbox för horisontell layout */
+    display: inline-flex;
+    /* Centrerar innehållet vertikalt */
+    align-items: center;
+    /* Maxbredd */
+    max-width: 640px;
+    /* Full bredd upp till maxbredden */
+    width: 100%;
+    /* En mjuk skugga */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    /* Pill-form runt hela wrappern */
+    border-radius: 980px;
+    /* Vit bakgrundsfärg */
+    background-color: #ffffff;
+    /* Subtil grå kantlinje */
+    border: 1px solid #d2d2d7;
+    /* Animerar kantlinje vid fokus */
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Fokusring när sökfältet är aktivt */
+.pm-search-wrapper:focus-within {
+    /* Apple-blå kantlinje vid fokus */
+    border-color: #0071e3;
+    /* Blå glöd vid fokus */
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
+}
+
+/* Sökfältet inuti wrappern */
+.pm-search-input {
+    /* Tar upp allt tillgängligt utrymme */
+    flex: 1;
+    /* Tar bort kantlinjen – wrappern har kantlinjen */
+    border: none;
+    /* Genomskinlig bakgrund */
+    background-color: transparent;
+    /* Inre utfyllnad */
+    padding: 12px 20px;
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 0.95rem;
+    /* Nästan svart textfärg */
+    color: #1c1c1e;
+    /* Tar bort fokusring – wrappern hanterar det */
+    outline: none;
+    /* Pill-form på vänster sida */
+    border-radius: 980px 0 0 980px;
+}
+
+/* Sökknappen inuti wrappern */
+.pm-search-btn {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 0.9rem;
+    /* Halvfet stil */
+    font-weight: 600;
+    /* Vit textfärg */
+    color: #ffffff;
+    /* Apple-blå bakgrundsfärg */
+    background-color: #0071e3;
+    /* Tar bort standardkantlinjen på knappar */
+    border: none;
+    /* Pill-form på höger sida */
+    border-radius: 0 980px 980px 0;
+    /* Inre utfyllnad */
+    padding: 12px 20px;
+    /* Markören ändras till en hand */
+    cursor: pointer;
+    /* Hindrar texten från att radbryta */
+    white-space: nowrap;
+    /* Animerar bakgrundsfärgen */
+    transition: background-color 0.2s;
+    /* Avstånd mellan ikon och text */
+    gap: 6px;
+    /* Flexbox för ikon + text */
+    display: flex;
+    align-items: center;
+    /* Hindrar knappen från att krympas ihop av sökfältet */
+    flex-shrink: 0;
+}
+
+/* Sökknappen vid hover */
+.pm-search-btn:hover {
+    /* Mörkare blå vid hover */
+    background-color: #005cbf;
+}
+
+/* Autocomplete-dropdown */
+.pm-suggestions {
+    /* Positioneras under sökfältet */
+    position: absolute;
+    /* Placeras direkt under sökfältet */
+    top: calc(100% + 6px);
+    /* Centreras horisontellt */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Samma bredd som sökfältet */
+    width: 100%;
+    /* Maxbredd */
+    max-width: 640px;
+    /* Vit bakgrundsfärg */
+    background-color: #ffffff;
+    /* Subtil grå kantlinje */
+    border: 1px solid #d2d2d7;
+    /* Rundade hörn */
+    border-radius: 12px;
+    /* En mjuk skugga */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    /* Tar bort bullets */
+    list-style: none;
+    /* Inre utfyllnad */
+    padding: 6px 0;
+    /* Placeras ovanpå annat innehåll */
+    z-index: 100;
+    /* Maxhöjd för scrollbarhet */
+    max-height: 280px;
+    /* Scrollning om listan är lång */
+    overflow-y: auto;
+    /* Tar bort standardmarginalen på listor */
+    margin: 0;
+}
+
+/* Enskilda autocomplete-förslag */
+.pm-suggestions li {
+    /* Inre utfyllnad */
+    padding: 10px 16px;
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 0.95rem;
+    /* Mörkgrå textfärg */
+    color: #1c1c1e;
+    /* Markören ändras till en hand */
+    cursor: pointer;
+    /* Animerar bakgrundsfärgen */
+    transition: background-color 0.15s;
+    /* Texten vänsterjusterad */
+    text-align: left;
+}
+
+/* Förslag vid hover eller tangentbordsnavigering */
+.pm-suggestions li:hover,
+.pm-suggestion--active {
+    /* Ljusblå bakgrundsfärg */
+    background-color: #e8f0fd;
+    /* Apple-blå textfärg */
+    color: #0071e3;
+}
+
+
+/* ------------------------------------------------------------
+   LADDNINGSINDIKATOR
+   ------------------------------------------------------------ */
+
+/* Laddningsindikatorns container */
+.pm-loading {
+    /* Centrerar innehållet */
+    text-align: center;
+    /* Avstånd ovanför */
+    margin-top: 24px;
+    /* Flexbox för vertikal layout */
+    display: flex;
+    /* Staplar spinner och text vertikalt */
+    flex-direction: column;
+    /* Centrerar innehållet */
+    align-items: center;
+    /* Avstånd mellan spinner och text */
+    gap: 12px;
+}
+
+/* Döljer laddningsindikatorn när hidden-attributet är satt.
+   Behövs eftersom display: flex annars åsidosätter hidden. */
+.pm-loading[hidden] {
+    display: none;
+}
+
+/* Laddningstext */
+.pm-loading p {
+    /* Mörkgrå textfärg */
+    color: #6e6e73;
+    /* Textstorlek */
+    font-size: 0.95rem;
+}
+
+/* Snurrande spinner */
+.pm-spinner {
+    /* Bredd */
+    width: 36px;
+    /* Höjd */
+    height: 36px;
+    /* Rund form */
+    border-radius: 50%;
+    /* Ljusgrå cirkel med Apple-blå segment */
+    border: 3px solid #d2d2d7;
+    border-top-color: #0071e3;
+    /* Spinner-animation */
+    animation: pm-spin 0.8s linear infinite;
+    /* Gör det till ett blockelement */
+    display: block;
+}
+
+/* Nyckelbilder för spinner-animationen */
+@keyframes pm-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ------------------------------------------------------------
+   FELMEDDELANDE
+   ------------------------------------------------------------ */
+
+/* Felmeddelande-container */
+.pm-error {
+    /* Avstånd ovanför */
+    margin-top: 24px;
+    /* Maxbredd */
+    max-width: 640px;
+    /* Centreras horisontellt */
+    margin-left: auto;
+    margin-right: auto;
+    /* Ljusröd bakgrundsfärg */
+    background-color: #fff5f5;
+    /* Röd kantlinje */
+    border: 1px solid #fc8181;
+    /* Rundade hörn */
+    border-radius: 12px;
+    /* Inre utfyllnad */
+    padding: 16px 20px;
+    /* Centrerar texten */
+    text-align: center;
+}
+
+/* Felmeddelande-texten */
+.pm-error p {
+    /* Röd textfärg */
+    color: #c53030;
+    /* Textstorlek */
+    font-size: 0.95rem;
+}
+
+
+/* ------------------------------------------------------------
+   RESULTATSEKTIONEN – RUBRIK OCH META
+   ------------------------------------------------------------ */
+
+/* Resultat-container */
+#pm-result-content {
+    /* Avstånd ovanför */
+    margin-top: 16px;
+}
+
+/* Rubrik och metainfo-container */
+.pm-result-header {
+    /* Centrerad text */
+    text-align: center;
+    /* Avstånd nedanför */
+    margin-bottom: 20px;
+}
+
+/* Produktrubrik i resultatsektion */
+.pm-result-header h3 {
+    /* Displaytypsnitt */
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 1.4rem;
+    /* Fetstil */
+    font-weight: 700;
+    /* Nästan svart textfärg */
+    color: #1c1c1e;
+    /* Avstånd nedanför */
+    margin-bottom: 4px;
+}
+
+/* Metainformation under produktrubriken */
+.pm-result-meta {
+    /* Grå textfärg */
+    color: #6e6e73;
+    /* Liten textstorlek */
+    font-size: 0.88rem;
+}
+
+
+/* ------------------------------------------------------------
+   PRISTABELL
+   ------------------------------------------------------------ */
+
+/* Wrapper för att möjliggöra horisontell scroll på liten skärm */
+.pm-table-wrapper {
+    /* Horisontell scroll om tabellen är för bred */
+    overflow-x: auto;
+    /* Mjuka rundade hörn */
+    border-radius: 12px;
+    /* En mjuk skugga */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Pristabell */
+.pm-table {
+    /* Full bredd */
+    width: 100%;
+    /* Tar bort dubbelkantlinjer */
+    border-collapse: collapse;
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 0.92rem;
+    /* Vit bakgrundsfärg */
+    background-color: #ffffff;
+    /* Mjuka rundade hörn */
+    border-radius: 12px;
+    /* Döljer hörnen på thead */
+    overflow: hidden;
+}
+
+/* Tabellhuvud */
+.pm-table thead tr {
+    /* Apple-blå bakgrundsfärg */
+    background-color: #0071e3;
+}
+
+/* Tabellhuvud-celler */
+.pm-table thead th {
+    /* Inre utfyllnad */
+    padding: 12px 16px;
+    /* Vit textfärg */
+    color: #ffffff;
+    /* Halvfet stil */
+    font-weight: 600;
+    /* Vänsterjusterad text */
+    text-align: left;
+    /* Displaytypsnitt */
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 0.9rem;
+}
+
+/* Tabellceller */
+.pm-table tbody td {
+    /* Inre utfyllnad */
+    padding: 12px 16px;
+    /* Subtil grå avdelare */
+    border-bottom: 1px solid #f0f0f5;
+    /* Mörkgrå textfärg */
+    color: #3a3a3c;
+    /* Centrerar innehållet vertikalt */
+    vertical-align: middle;
+}
+
+/* Sista raden har ingen avdelare */
+.pm-table tbody tr:last-child td {
+    /* Tar bort kantlinjen på sista raden */
+    border-bottom: none;
+}
+
+/* Varannan rad med alternativ bakgrundsfärg */
+.pm-table tbody tr:nth-child(even) {
+    /* Ljusgrå bakgrundsfärg */
+    background-color: #f9f9fb;
+}
+
+/* Hover-effekt på tabellrader */
+.pm-table tbody tr:hover {
+    /* Ljusblå bakgrundsfärg vid hover */
+    background-color: #e8f0fd;
+    /* Smidig övergång */
+    transition: background-color 0.15s;
+}
+
+/* Billigaste raden – framhävd med guld-bakgrund */
+.pm-row--cheapest {
+    /* Ljusgul bakgrundsfärg */
+    background-color: #fffbeb !important;
+}
+
+/* Billigaste raden vid hover */
+.pm-row--cheapest:hover {
+    /* Något mörkare gul vid hover */
+    background-color: #fef3c7 !important;
+}
+
+/* Rank-cell */
+.pm-rank {
+    /* Textstorlek för medaljemoji */
+    font-size: 1.1rem;
+    /* Centrerar emojin */
+    display: inline-block;
+}
+
+/* Butiksnamn */
+.pm-store-name {
+    /* Halvfet stil */
+    font-weight: 600;
+    /* Nästan svart textfärg */
+    color: #1c1c1e;
+}
+
+/* Priset i tabellen */
+.pm-price {
+    /* Halvfet stil */
+    font-weight: 600;
+    /* Nästan svart textfärg */
+    color: #1c1c1e;
+    /* Hindrar texten från att radbryta */
+    white-space: nowrap;
+}
+
+/* Länkknapp till butiken */
+.pm-store-link {
+    /* Tar bort block-displayen – tabellcellen hanterar layouten */
+    display: inline-flex;
+    /* Centrerar ikon och text */
+    align-items: center;
+    /* Avstånd mellan text och ikon */
+    gap: 6px;
+    /* Hindrar texten från att radbryta */
+    white-space: nowrap;
+    /* Mindre textstorlek */
+    font-size: 0.85rem;
+}
+
+
+/* ------------------------------------------------------------
+   LAGERSTATUS-BADGE
+   ------------------------------------------------------------ */
+
+/* Gemensam bas för lagerstatus-badge */
+.pm-badge {
+    /* Inline-block för att se ut som en bricka */
+    display: inline-block;
+    /* Inre utfyllnad */
+    padding: 3px 10px;
+    /* Pill-form */
+    border-radius: 980px;
+    /* Liten textstorlek */
+    font-size: 0.8rem;
+    /* Halvfet stil */
+    font-weight: 600;
+    /* Hindrar texten från att radbryta */
+    white-space: nowrap;
+}
+
+/* Grön badge: i lager */
+.pm-badge--in-stock {
+    /* Ljusgrön bakgrundsfärg */
+    background-color: #f0fff4;
+    /* Grön textfärg */
+    color: #276749;
+    /* Grön kantlinje */
+    border: 1px solid #9ae6b4;
+}
+
+/* Röd badge: ej i lager */
+.pm-badge--out-of-stock {
+    /* Ljusröd bakgrundsfärg */
+    background-color: #fff5f5;
+    /* Röd textfärg */
+    color: #c53030;
+    /* Röd kantlinje */
+    border: 1px solid #fc8181;
+}
+
+
+/* ------------------------------------------------------------
+   ANSVARSFRISKRIVNING UNDER TABELLEN
+   ------------------------------------------------------------ */
+
+/* Ansvarsfriskrivning */
+.pm-disclaimer {
+    /* Grå textfärg */
+    color: #6e6e73;
+    /* Liten textstorlek */
+    font-size: 0.82rem;
+    /* Centrerad text */
+    text-align: center;
+    /* Avstånd ovanför */
+    margin-top: 16px;
+}
+
+
+/* ------------------------------------------------------------
+   HJÄLPKLASS: visuellt dold men läsbar av skärmläsare
+   ------------------------------------------------------------ */
+
+/* Döljer text visuellt men behåller den för skärmläsare */
+.sr-only {
+    /* Tar bort elementet från det visuella flödet */
+    position: absolute;
+    /* Gör elementet 1px brett */
+    width: 1px;
+    /* Gör elementet 1px högt */
+    height: 1px;
+    /* Tar bort eventuell padding */
+    padding: 0;
+    /* Tar bort eventuell marginal */
+    margin: -1px;
+    /* Döljer innehåll som flödar utanför */
+    overflow: hidden;
+    /* Beskär innehållet */
+    clip: rect(0, 0, 0, 0);
+    /* Förhindrar radbrytning */
+    white-space: nowrap;
+    /* Tar bort elementet ur layoutflödet */
+    border-width: 0;
+}
+
+
+/* ------------------------------------------------------------
+   DARK MODE – prisjämförelsewebbsidan
+   ------------------------------------------------------------ */
+
+/* Sökfält-wrapper i mörkt läge */
+body.dark-mode .pm-search-wrapper {
+    /* Mörk bakgrundsfärg */
+    background-color: #2c2c2e;
+    /* Mörkgrå kantlinje */
+    border-color: #3a3a3c;
+}
+
+/* Sökfält i mörkt läge */
+body.dark-mode .pm-search-input {
+    /* Vit textfärg */
+    color: #f5f5f7;
+}
+
+/* Placeholder-text i mörkt läge */
+body.dark-mode .pm-search-input::placeholder {
+    /* Grå placeholder-text */
+    color: #6e6e73;
+}
+
+/* Autocomplete-dropdown i mörkt läge */
+body.dark-mode .pm-suggestions {
+    /* Mörk bakgrundsfärg */
+    background-color: #2c2c2e;
+    /* Mörkgrå kantlinje */
+    border-color: #3a3a3c;
+}
+
+/* Autocomplete-förslag i mörkt läge */
+body.dark-mode .pm-suggestions li {
+    /* Ljus textfärg */
+    color: #f5f5f7;
+}
+
+/* Hover/aktivt förslag i mörkt läge */
+body.dark-mode .pm-suggestions li:hover,
+body.dark-mode .pm-suggestion--active {
+    /* Mörkblå bakgrundsfärg */
+    background-color: #1c3a5e;
+    /* Ljusblå textfärg */
+    color: #4da3ff;
+}
+
+/* Pristabell i mörkt läge */
+body.dark-mode .pm-table {
+    /* Mörk bakgrundsfärg */
+    background-color: #2c2c2e;
+}
+
+/* Tabellceller i mörkt läge */
+body.dark-mode .pm-table tbody td {
+    /* Mörkgrå avdelare */
+    border-bottom-color: #3a3a3c;
+    /* Ljus textfärg */
+    color: #f5f5f7;
+}
+
+/* Varannan rad i mörkt läge */
+body.dark-mode .pm-table tbody tr:nth-child(even) {
+    /* Något mörkare bakgrundsfärg */
+    background-color: #1c1c1e;
+}
+
+/* Hover-effekt i mörkt läge */
+body.dark-mode .pm-table tbody tr:hover {
+    /* Mörkblå bakgrundsfärg */
+    background-color: #1c3a5e;
+}
+
+/* Billigaste raden i mörkt läge */
+body.dark-mode .pm-row--cheapest {
+    /* Mörkgul bakgrundsfärg */
+    background-color: #2d2600 !important;
+}
+
+/* Butiksnamn i mörkt läge */
+body.dark-mode .pm-store-name {
+    /* Ljus textfärg */
+    color: #f5f5f7;
+}
+
+/* Pris i mörkt läge */
+body.dark-mode .pm-price {
+    /* Ljus textfärg */
+    color: #f5f5f7;
+}
+
+/* Produktrubrik i mörkt läge */
+body.dark-mode .pm-result-header h3 {
+    /* Ljus textfärg */
+    color: #f5f5f7;
+}
+
+/* Felmeddelande i mörkt läge */
+body.dark-mode .pm-error {
+    /* Mörkröd bakgrundsfärg */
+    background-color: #2d1515;
+    /* Mörkröd kantlinje */
+    border-color: #c53030;
+}
+
+/* Felmeddelande-text i mörkt läge */
+body.dark-mode .pm-error p {
+    /* Ljus röd textfärg */
+    color: #fc8181;
+}
+
+/* ------------------------------------------------------------
+   9. questions.html – STÄLLA FRÅGOR-SIDAN
+      Formuläret byggs och stilas i vecka 16.
+   ------------------------------------------------------------ */
+
+/* Huvudrubrik ovanför formuläret */
+.title-2 {
+    /* Centrerar rubriktexten */
+    text-align: center;
+    /* Avstånd nedanför rubriken */
+    margin-bottom: 1.5rem;
+}
+
+/* Centrerar formuläret och begränsar bredden */
+.form-wrapper {
+    /* Anger en maximal bredd så formuläret inte blir för brett på stora skärmar */
+    max-width: 740px;
+    /* Centrerar formuläret automatiskt horisontellt, med avstånd nedtill */
+    margin: 0 auto 3rem auto;
+    /* Ger luft på sidorna så formuläret inte trycks mot kanten */
+    padding: 0 1rem;
+}
+
+/* Yttre ruta som håller ihop hela formuläret */
+.form-outer-box {
+    /* Subtil grå kantlinje runt hela formulärboxen */
+    border: 2px solid #d2d2d7;
+    /* Rundade hörn på den yttre rutan */
+    border-radius: 16px;
+    /* Inre utfyllnad runt innehållet */
+    padding: 2rem;
+    /* Ljusgrå bakgrundsfärg på den yttre rutan */
+    background-color: #f9f9f9;
+    /* En svag skugga under rutan för djupkänsla */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Staplar de tre sektionerna vertikalt med mellanrum */
+.question-form {
+    /* Flexbox för vertikal layout */
+    display: flex;
+    /* Staplar sektionerna ovanpå varandra */
+    flex-direction: column;
+    /* Avstånd mellan varje sektion */
+    gap: 2rem;
+}
+
+/* Varje inre sektion i formuläret */
+.form-fieldset {
+    /* Subtil grå kantlinje runt varje sektion */
+    border: 2px solid #d2d2d7;
+    /* Rundade hörn på varje sektion */
+    border-radius: 12px;
+    /* Inre utfyllnad runt sektionens innehåll */
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    /* Flexbox för vertikal layout */
+    display: flex;
+    /* Staplar fälten ovanpå varandra */
+    flex-direction: column;
+    /* Avstånd mellan varje fält */
+    gap: 1.25rem;
+}
+
+/* Rubrik på varje sektion */
+.form-fieldset>legend {
+    /* Displaytypsnitt för rubriken */
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    /* Fetstil */
+    font-weight: 700;
+    /* Textstorlek */
+    font-size: 1.1rem;
+    /* Inre utfyllnad på sidorna så texten inte trycks mot kantlinjen */
+    padding: 0 0.5rem;
+    /* Nästan svart textfärg */
+    color: #1c1c1e;
+}
+
+/* Kön-sektionen inuti ett fält – tar bort dubbel kantlinje */
+.radio-fieldset {
+    /* Tar bort standardkantlinjen på fieldset */
+    border: none;
+    /* Tar bort standardpadding på fieldset */
+    padding: 0;
+    /* Tar bort standardmarginal på fieldset */
+    margin: 0;
+}
+
+/* Rubrik på kön-sektionen */
+.radio-fieldset>legend {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Halvfet stil */
+    font-weight: 600;
+    /* Textstorlek */
+    font-size: 0.95rem;
+    /* Mörkgrå textfärg */
+    color: #3a3a3c;
+    /* Avstånd nedanför rubriken */
+    margin-bottom: 0.5rem;
+    /* Tar bort standardpadding */
+    padding: 0;
+}
+
+/* En rad med label och fält */
+.form-group {
+    /* Flexbox för vertikal layout */
+    display: flex;
+    /* Staplar label och fält ovanpå varandra */
+    flex-direction: column;
+    /* Avstånd mellan label och fält */
+    gap: 0.4rem;
+}
+
+/* Lägger förnamn/efternamn och e-post/telefon bredvid varandra */
+.form-row {
+    /* Använder flexbox för att placera fälten i rad */
+    display: flex;
+    /* Lika stort mellanrum mellan kolumnerna */
+    gap: 1.5rem;
+}
+
+/* Varje fältgrupp i en rad tar lika mycket plats */
+.form-row .form-group {
+    /* Båda kolumnerna växer lika mycket */
+    flex: 1;
+}
+
+/* Labeltext ovanför varje fält */
+.form-group>label {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Halvfet stil */
+    font-weight: 600;
+    /* Textstorlek */
+    font-size: 0.95rem;
+    /* Mörkgrå textfärg */
+    color: #3a3a3c;
+}
+
+/* Röd asterisk för obligatoriska fält */
+.required-star {
+    /* Röd färg på asterisken */
+    color: #e53e3e;
+    /* Lite avstånd till vänster om asterisken */
+    margin-left: 2px;
+}
+
+/* Alla textfält, e-postfält, telefonfält, dropdown och textarea */
+.question-form input[type="text"],
+.question-form input[type="email"],
+.question-form input[type="tel"],
+.question-form select,
+.question-form textarea {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 1rem;
+    /* Inre utfyllnad i fälten */
+    padding: 0.65rem 0.9rem;
+    /* Subtil grå kantlinje */
+    border: 2px solid #d2d2d7;
+    /* Rundade hörn */
+    border-radius: 8px;
+    /* Vit bakgrundsfärg */
+    background-color: #ffffff;
+    /* Mörkgrå textfärg */
+    color: #1c1c1e;
+    /* Animerar kantlinje och skugga vid fokus */
+    transition: border-color 0.2s, box-shadow 0.2s;
+    /* Tar full bredd av sin behållare */
+    width: 100%;
+    /* Gör att padding och border ingår i bredden */
+    box-sizing: border-box;
+}
+
+/* Fokusring när användaren navigerar med tangentbordet */
+.question-form input[type="text"]:focus,
+.question-form input[type="email"]:focus,
+.question-form input[type="tel"]:focus,
+.question-form select:focus,
+.question-form textarea:focus {
+    /* Tar bort webbläsarens standardfokusring */
+    outline: none;
+    /* Apple-blå kantlinje vid fokus */
+    border-color: #0071e3;
+    /* Blå glöd runt fältet vid fokus */
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.25);
+}
+
+/* Röd kantlinje när ett fält är ogiltigt och berört */
+.question-form input:invalid:not(:placeholder-shown),
+.question-form select:invalid:focus,
+.question-form textarea:invalid:not(:placeholder-shown) {
+    /* Röd kantlinje för ogiltigt fält */
+    border-color: #e53e3e;
+}
+
+/* Grön kantlinje när ett fält är giltigt och ifyllt */
+.question-form input:valid:not(:placeholder-shown),
+.question-form textarea:valid:not(:placeholder-shown) {
+    /* Grön kantlinje för giltigt fält */
+    border-color: #38a169;
+}
+
+/* Textarea för fritext */
+.question-form textarea {
+    /* Tillåter endast vertikal storleksändring */
+    resize: vertical;
+    /* Minsta höjd på textarea */
+    min-height: 140px;
+}
+
+/* Radioknapparna staplas vertikalt */
+.radio-group {
+    /* Flexbox för vertikal layout */
+    display: flex;
+    /* Staplar radioknapparna ovanpå varandra */
+    flex-direction: column;
+    /* Avstånd mellan radioknapparna */
+    gap: 0.5rem;
+}
+
+/* En enskild radioknapp med tillhörande text */
+.radio-label {
+    /* Flexbox för horisontell layout */
+    display: flex;
+    /* Centrerar radioknappen och texten vertikalt */
+    align-items: center;
+    /* Avstånd mellan radioknappen och texten */
+    gap: 0.5rem;
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Textstorlek */
+    font-size: 0.95rem;
+    /* Mörkgrå textfärg */
+    color: #3a3a3c;
+    /* Markören ändras till en hand vid hover */
+    cursor: pointer;
+}
+
+/* Fokusring på radioknapp vid tangentbordsnavigering */
+.radio-label input[type="radio"]:focus-visible {
+    /* Blå fokusring */
+    outline: 3px solid #0071e3;
+    /* Avstånd mellan knappen och fokusringen */
+    outline-offset: 2px;
+}
+
+/* Liten ledtext under ett fält */
+.form-hint {
+    /* Liten textstorlek */
+    font-size: 0.82rem;
+    /* Grå textfärg */
+    color: #6e6e73;
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+}
+
+/* Felmeddelande under ett fält */
+.form-error {
+    /* Liten textstorlek */
+    font-size: 0.85rem;
+    /* Röd textfärg */
+    color: #e53e3e;
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Reserverar utrymme så layouten inte hoppar när text visas */
+    min-height: 1.1em;
+}
+
+/* Förklaring för obligatoriska fält längst ner */
+.required-note {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Liten textstorlek */
+    font-size: 0.88rem;
+    /* Grå textfärg */
+    color: #6e6e73;
+    /* Tar bort standardmarginal */
+    margin: 0;
+}
+
+/* Villkorstext i formuläret */
+.terms-text {
+    /* Lite mindre textstorlek än brödtexten */
+    font-size: 0.9rem;
+    /* Grå textfärg för att inte ta för mycket fokus */
+    color: #555;
+    /* Avstånd nedanför texten */
+    margin-bottom: 0.5rem;
+    /* Radavstånd för bättre läsbarhet */
+    line-height: 1.5;
+}
+
+/* Rad med skicka- och nollställ-knappar */
+.form-buttons {
+    /* Flexbox för horisontell layout */
+    display: flex;
+    /* Avstånd mellan knapparna */
+    gap: 1rem;
+    /* Tillåter radbrytning om skärmen är smal */
+    flex-wrap: wrap;
+}
+
+/* Fokusring på villkorscheckboxen vid tangentbordsnavigering */
+.radio-label input[type="checkbox"]:focus-visible {
+    /* Blå fokusring */
+    outline: 3px solid #0071e3;
+    /* Avstånd mellan checkboxen och fokusringen */
+    outline-offset: 2px;
+}
+
+/* Skicka-knapp */
+.btn-submit {
+    /* Apple-blå bakgrundsfärg */
+    background-color: #0071e3;
+    /* Vit textfärg */
+    color: #ffffff;
+    /* Displaytypsnitt */
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    /* Fetstil */
+    font-weight: 700;
+    /* Textstorlek */
+    font-size: 1rem;
+    /* Inre utfyllnad */
+    padding: 0.7rem 1.8rem;
+    /* Tar bort standardkantlinje */
+    border: none;
+    /* Rundade hörn */
+    border-radius: 8px;
+    /* Markören ändras till en hand vid hover */
+    cursor: pointer;
+    /* Animerar bakgrundsfärg och skalning */
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Skicka-knappen vid hover */
+.btn-submit:hover {
+    /* Mörkare blå vid hover */
+    background-color: #0060c7;
+}
+
+/* Skicka-knappen vid klick */
+.btn-submit:active {
+    /* Krymper knappen något vid klick */
+    transform: scale(0.98);
+}
+
+/* Fokusring på skicka-knappen vid tangentbordsnavigering */
+.btn-submit:focus-visible {
+    /* Blå fokusring */
+    outline: 3px solid #0071e3;
+    /* Avstånd mellan knappen och fokusringen */
+    outline-offset: 3px;
+}
+
+/* Nollställ-knapp */
+.btn-reset {
+    /* Genomskinlig bakgrund */
+    background-color: transparent;
+    /* Mörkgrå textfärg */
+    color: #1c1c1e;
+    /* Displaytypsnitt */
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    /* Halvfet stil */
+    font-weight: 600;
+    /* Textstorlek */
+    font-size: 1rem;
+    /* Inre utfyllnad */
+    padding: 0.7rem 1.8rem;
+    /* Subtil grå kantlinje */
+    border: 2px solid #d2d2d7;
+    /* Rundade hörn */
+    border-radius: 8px;
+    /* Markören ändras till en hand vid hover */
+    cursor: pointer;
+    /* Animerar kantlinje och bakgrundsfärg */
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Nollställ-knappen vid hover */
+.btn-reset:hover {
+    /* Mörkare kantlinje vid hover */
+    border-color: #6e6e73;
+    /* Ljusgrå bakgrund vid hover */
+    background-color: #f0f0f5;
+}
+
+/* Fokusring på nollställ-knappen vid tangentbordsnavigering */
+.btn-reset:focus-visible {
+    /* Blå fokusring */
+    outline: 3px solid #0071e3;
+    /* Avstånd mellan knappen och fokusringen */
+    outline-offset: 3px;
+}
+
+/* Bekräftelseskärm som visas efter att formuläret skickats */
+#question-result {
+    /* Inre utfyllnad runt innehållet */
+    padding: 2rem;
+    /* Centrerar texten */
+    text-align: center;
+}
+
+/* Rubrik i bekräftelseskärmen */
+#question-result h3 {
+    /* Större textstorlek för rubriken */
+    font-size: 1.6rem;
+    /* Avstånd nedanför rubriken */
+    margin-bottom: 1rem;
+}
+
+/* Sammanfattningsbox med användarens svar */
+#question-summary {
+    /* Vänsterjusterad text för lättare läsning */
+    text-align: left;
+    /* Avstånd ovanför sammanfattningen */
+    margin-top: 1rem;
+}
+
+/* Varje rad i sammanfattningen */
+#question-summary p {
+    /* Litet avstånd ovanför och nedanför varje rad */
+    margin: 0.4rem 0;
+}
+
+/* Tillbaka-knapp på bekräftelseskärmen */
+.btn-back {
+    /* Genomskinlig bakgrund */
+    background-color: transparent;
+    /* Mörkgrå textfärg */
+    color: #1c1c1e;
+    /* Displaytypsnitt */
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    /* Halvfet stil */
+    font-weight: 600;
+    /* Textstorlek */
+    font-size: 1rem;
+    /* Inre utfyllnad */
+    padding: 0.7rem 1.8rem;
+    /* Subtil grå kantlinje */
+    border: 2px solid #d2d2d7;
+    /* Rundade hörn */
+    border-radius: 8px;
+    /* Markören ändras till en hand vid hover */
+    cursor: pointer;
+    /* Avstånd ovanför knappen */
+    margin-top: 1.5rem;
+    /* Animerar kantlinje och bakgrundsfärg */
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Tillbaka-knappen vid hover */
+.btn-back:hover {
+    /* Mörkare kantlinje vid hover */
+    border-color: #6e6e73;
+    /* Ljusgrå bakgrund vid hover */
+    background-color: #f0f0f5;
+}
+
+/* Tillbaka-knappen i mörkt läge */
+body.dark-mode .btn-back {
+    /* Ljusgrå textfärg */
+    color: #f5f5f7;
+    /* Mörkgrå kantlinje */
+    border-color: #3a3a3c;
+}
+
+/* Tillbaka-knappen vid hover i mörkt läge */
+body.dark-mode .btn-back:hover {
+    /* Mörkgrå bakgrund vid hover */
+    background-color: #3a3a3c;
+    /* Något ljusare kantlinje */
+    border-color: #6e6e73;
+}
+
+
+/* ------------------------------------------------------------
+   MÖRKT LÄGE – Formulär
+   ------------------------------------------------------------ */
+
+/* Yttre rutan i mörkt läge */
+body.dark-mode .form-outer-box {
+    /* Mörkgrå bakgrundsfärg */
+    background-color: #1c1c1e;
+    /* Mörkgrå kantlinje */
+    border-color: #3a3a3c;
+    /* Mörkare skugga */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Sektionskantlinjer i mörkt läge */
+body.dark-mode .form-fieldset {
+    /* Mörkgrå kantlinje */
+    border-color: #3a3a3c;
+}
+
+/* Sektionsrubriker och labeltext i mörkt läge */
+body.dark-mode .form-fieldset>legend,
+body.dark-mode .radio-fieldset>legend,
+body.dark-mode .form-group>label,
+body.dark-mode .radio-label {
+    /* Ljusgrå textfärg */
+    color: #f5f5f7;
+}
+
+/* Alla fält i mörkt läge */
+body.dark-mode .question-form input[type="text"],
+body.dark-mode .question-form input[type="email"],
+body.dark-mode .question-form input[type="tel"],
+body.dark-mode .question-form select,
+body.dark-mode .question-form textarea {
+    /* Mörkgrå bakgrundsfärg */
+    background-color: #2c2c2e;
+    /* Mörkgrå kantlinje */
+    border-color: #3a3a3c;
+    /* Ljusgrå textfärg */
+    color: #f5f5f7;
+}
+
+/* Fokusring på fält i mörkt läge */
+body.dark-mode .question-form input[type="text"]:focus,
+body.dark-mode .question-form input[type="email"]:focus,
+body.dark-mode .question-form input[type="tel"]:focus,
+body.dark-mode .question-form select:focus,
+body.dark-mode .question-form textarea:focus {
+    /* Apple-blå kantlinje vid fokus */
+    border-color: #0071e3;
+    /* Blå glöd runt fältet vid fokus */
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.25);
+}
+
+/* Nollställ-knappen i mörkt läge */
+body.dark-mode .btn-reset {
+    /* Ljusgrå textfärg */
+    color: #f5f5f7;
+    /* Mörkgrå kantlinje */
+    border-color: #3a3a3c;
+}
+
+/* Nollställ-knappen vid hover i mörkt läge */
+body.dark-mode .btn-reset:hover {
+    /* Mörkgrå bakgrund vid hover */
+    background-color: #3a3a3c;
+    /* Något ljusare kantlinje */
+    border-color: #6e6e73;
+}
+
+/* Ledtext och obligatorisk-not i mörkt läge */
+body.dark-mode .form-hint,
+body.dark-mode .required-note {
+    /* Grå textfärg */
+    color: #aeaeb2;
+}
+
+/* Villkorstext i mörkt läge */
+body.dark-mode .terms-text {
+    /* Ljusgrå textfärg i mörkt läge */
+    color: #aeaeb2;
+}
+
+/* ------------------------------------------------------------
+   10. about_us.html – OM OSS-SIDAN
+   ------------------------------------------------------------ */
+
+/* Sektionen med teambilden */
+.team-image-section {
+    /* Centrerar bilden */
+    text-align: center;
+    /* Avstånd ovanför sektionen */
+    margin-top: 20px;
+    /* Avstånd nedanför sektionen */
+    margin-bottom: 28px;
+}
+
+/* Teambilden */
+.team-image {
+    /* Centrerar bilden horisontellt */
+    margin: 0 auto;
+    /* Maxbredd på bilden */
+    max-width: 600px;
+    /* Full bredd upp till maxbredden */
+    width: 100%;
+    /* Rundade hörn */
+    border-radius: 10px;
+    /* En mjuk skugga */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Container för "Om iFuture" och "Kontaktuppgifter" bredvid varandra */
+.about-contact-section {
+    /* Flexbox för horisontell layout */
+    display: flex;
+    /* Bryter till ny rad på små skärmar */
+    flex-wrap: wrap;
+    /* Avstånd mellan korten */
+    gap: 20px;
+    /* Centrerar korten horisontellt */
+    justify-content: center;
+    /* Jämnar ut höjden */
+    align-items: flex-start;
+}
+
+/* Sociala medier-ikoner via Font Awesome */
+.social-icons {
+    /* Flexbox för horisontell rad av ikoner */
+    display: flex;
+    /* Avstånd mellan ikonerna */
+    gap: 16px;
+    /* Avstånd ovanför ikonerna */
+    margin-top: 12px;
+}
+
+/* Enskild ikon */
+.social-icons a {
+    /* Stor textstorlek */
+    font-size: 1.5rem;
+    /* Mörkgrå färg */
+    color: #3a3a3c;
+    /* Tar bort understrykning */
+    text-decoration: none;
+}
+
+/* ------------------------------------------------------------
+   11. FOOTER
+       Vit bakgrund – samma som headern.
+   ------------------------------------------------------------ */
+
+/* Sidfot */
+footer {
+    /* Brödtexttypsnitt */
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    /* Vit bakgrundsfärg – matchar headern */
+    background-color: #ffffff;
+    /* Subtil grå linje längst upp */
+    border-top: 1px solid #d2d2d7;
+    /* Centrerar texten */
+    text-align: center;
+    /* Inre utfyllnad */
+    padding: 32px 24px;
+}
+
+/* Stycken inuti footern */
+footer p {
+    /* Liten textstorlek */
+    font-size: 0.85rem;
+    /* Grå textfärg */
+    color: #6e6e73;
+    /* Radavstånd */
+    line-height: 1.5;
+    /* Avstånd nedanför varje stycke */
+    margin-bottom: 4px;
+}
+
+/* Rad med sociala medier-ikoner i footern */
+.footer-social {
+    /* Flexbox för horisontell rad */
+    display: flex;
+    /* Centrerar ikonerna */
+    justify-content: center;
+    /* Avstånd mellan ikonerna */
+    gap: 20px;
+    /* Avstånd nedanför ikonraden */
+    margin-bottom: 16px;
+}
+
+/* Enskild ikon i footern */
+.footer-social a {
+    /* Stor textstorlek */
+    font-size: 1.4rem;
+    /* Mörkgrå färg */
+    color: #3a3a3c;
+    /* Tar bort understrykning */
+    text-decoration: none;
+    /* Gör det möjligt att positionera pseudo-elementet relativt till länken */
+    position: relative;
+    /* Gör att länken beter sig som ett blockelement på sin egen radyta */
+    display: inline-block;
+    /* Skapar ett litet mellanrum mellan ikonen och den kommande linjen */
+    padding-bottom: 4px;
+}
+
+/* Skapar den animerade linjen med ett pseudo-element */
+.footer-social a::after {
+    /* Krävs för att pseudo-elementet ska skapas */
+    content: "";
+    /* Positionerar linjen absolut längst ner i länkens behållare */
+    position: absolute;
+    /* Startar från vänster kant */
+    left: 0;
+    /* Placerar linjen i botten av padding-ytan */
+    bottom: 0;
+    /* Gör linjen lika bred som ikonen */
+    width: 100%;
+    /* Bestämmer linjens tjocklek */
+    height: 2px;
+    /* Använder länkens nuvarande textfärg för linjen */
+    background-color: currentColor;
+    /* Startar med linjen osynlig (0 i bredd via skala) */
+    transform: scaleX(0);
+    /* Animerar förändringen av skalan på 0.3 sekunder */
+    transition: transform 0.3s ease;
+    /* Gör att animationen startar från vänster sida */
+    transform-origin: left;
+}
+
+/* När användaren håller musen över ikonen */
+.footer-social a:hover::after {
+    /* Linjen växer till sin fulla bredd */
+    transform: scaleX(1);
+}
+
+/* Justering för den animerade linjen i mörkt läge */
+body.dark-mode .footer-social a::after {
+    /* Använder den ljusgrå färgen från footerns dark-mode-inställning */
+    background-color: #aeaeb2;
+}
+
+/* ============================================================
+   12. MÖRKT LÄGE – FÖRBERETT FÖR JAVASCRIPT (VECKA 17)
+       JavaScript lägger till klassen .dark-mode på <body>.
+   ============================================================ */
+
+/* Bakgrund och textfärg i mörkt läge */
+body.dark-mode {
+    /* Svart bakgrundsfärg */
+    background-color: #000000;
+    /* Ljusgrå textfärg */
+    color: #f5f5f7;
+}
+
+/* Header i mörkt läge */
+body.dark-mode header {
+    /* Mörkgrå bakgrundsfärg */
+    background-color: #1c1c1e;
+    /* Mörkgrå kantlinje */
+    border-bottom-color: #3a3a3c;
+}
+
+/* Navigationslänkar i mörkt läge */
+body.dark-mode .nav a.button {
+    /* Ljusgrå textfärg */
+    color: #f5f5f7;
+    /* Mörkgrå kantlinje */
+    border-color: #6e6e73;
+}
+
+/* Mörkt-läge-knapp i mörkt läge */
+body.dark-mode .change_color {
+    /* Ljusgrå textfärg */
+    color: #f5f5f7;
+    /* Mörkgrå kantlinje */
+    border-color: #6e6e73;
+}
+
+/* Produktkort i mörkt läge */
+body.dark-mode .product-item {
+    /* Mörkgrå bakgrundsfärg */
+    background-color: #1c1c1e;
+}
+
+/* Fakta-boxar och specifikationer i mörkt läge */
+body.dark-mode .fact,
+body.dark-mode .product-specs {
+    /* Mörkgrå bakgrundsfärg */
+    background-color: #2c2c2e;
+    /* Ljusgrå textfärg */
+    color: #f5f5f7;
+}
+
+/* Produktbildens bakgrund i mörkt läge */
+body.dark-mode .product-bottom img {
+    /* Mörkgrå bakgrundsfärg */
+    background-color: #2c2c2e;
+}
+
+/* Stycken och listobjekt i mörkt läge */
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode .specs-title {
+    /* Ljusgrå textfärg */
+    color: #ebebf5;
+}
+
+/* Rubriker i mörkt läge */
+body.dark-mode h2,
+body.dark-mode h3 {
+    /* Ljusgrå textfärg */
+    color: #f5f5f7;
+}
+
+/* Sekundärknapp i mörkt läge */
+body.dark-mode .btn {
+    /* Ljusblå textfärg */
+    color: #2997ff;
+    /* Ljusblå kantlinje */
+    border-color: #2997ff;
+}
+
+/* Primärknapp i mörkt läge – behåller sin blå fyllning */
+body.dark-mode .btn[target="_blank"] {
+    /* Apple-blå bakgrund bevaras */
+    background-color: #0071e3;
+    /* Vit textfärg bevaras */
+    color: #ffffff;
+    /* Kantlinje matchar bakgrunden */
+    border-color: #0071e3;
+}
+
+/* Emoji-knapp i mörkt läge */
+body.dark-mode .btn-emoji {
+    /* Ljusgrå textfärg */
+    color: #f5f5f7;
+    /* Mörkgrå kantlinje */
+    border-color: #6e6e73;
+}
+
+/* Sökfältet i mörkt läge */
+body.dark-mode .search-input {
+    /* Mörkgrå bakgrundsfärg */
+    background-color: #1c1c1e;
+    /* Mörkgrå kantlinje */
+    border-color: #3a3a3c;
+    /* Ljusgrå textfärg */
+    color: #f5f5f7;
+}
+
+/* Footer i mörkt läge */
+body.dark-mode footer {
+    /* Mörkgrå bakgrundsfärg */
+    background-color: #1c1c1e;
+    /* Mörkgrå kantlinje */
+    border-top-color: #3a3a3c;
+}
+
+/* Footertext i mörkt läge */
+body.dark-mode footer p {
+    /* Ljusgrå textfärg */
+    color: #aeaeb2;
+}
+
+/* Sociala medier-ikoner i footer i mörkt läge */
+body.dark-mode .footer-social a {
+    /* Ljusgrå färg */
+    color: #aeaeb2;
+}
+
+/* ------------------------------------------------------------
+   HAMBURGERMENY – grundstilar (dold på desktop)
+   ------------------------------------------------------------ */
+
+/* Hamburgerknappen – dold på desktop, visas på mobil */
+.hamburger {
+    /* Döljer hamburgaren på desktop */
+    display: none;
+    /* Tar bort standardbakgrund på knappen */
+    background: none;
+    /* Tar bort standardkantlinje på knappen */
+    border: none;
+    /* Markören ändras till en hand vid hover */
+    cursor: pointer;
+    /* Flexbox för att stapla strecken vertikalt */
+    flex-direction: column;
+    /* Avstånd mellan strecken */
+    gap: 5px;
+    /* Inre utfyllnad runt hamburgaren */
+    padding: 4px;
+}
+
+/* Varje enskilt streck i hamburgaren */
+.hamburger-bar {
+    /* Gör strecket synligt som ett block */
+    display: block;
+    /* Bredden på varje streck */
+    width: 24px;
+    /* Höjden på varje streck */
+    height: 2px;
+    /* Nästan svart färg på strecken */
+    background-color: #1c1c1e;
+    /* Rundade kanter på strecken */
+    border-radius: 2px;
+    /* Animerar rotation och synlighet vid öppning */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hamburgarstrecken i mörkt läge */
+body.dark-mode .hamburger-bar {
+    /* Ljusgrå färg på strecken i mörkt läge */
+    background-color: #f5f5f7;
+}
+
+/* ============================================================
+   13. RESPONSIV DESIGN – MEDIA QUERIES
+       Tre brytpunkter: 1366px (desktop), 768px (surfplatta),
+       375px (mobil)
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Surfplatta: 768px och mindre
+   ------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+
+    /* Minskar logotypen något */
+    .logo img {
+        /* Mindre bredd på logotypen */
+        width: 40px;
+        /* Mindre höjd på logotypen */
+        height: 40px;
+    }
+
+    /* Minskar textstorleken på nav-knapparna */
+    .nav a.button {
+        /* Mindre textstorlek på surfplatta */
+        font-size: 0.8rem;
+        /* Mindre inre utfyllnad på surfplatta */
+        padding: 6px 10px;
+    }
+
+    /* Minskar textstorleken på mörkt-läge-knappen */
+    .change_color {
+        /* Mindre textstorlek på surfplatta */
+        font-size: 0.8rem;
+        /* Mindre inre utfyllnad på surfplatta */
+        padding: 6px 10px;
+    }
+
+    /* Tvåkolumnslayout för produktkort */
+    .products-row {
+        /* Avstånd mellan produktkorten */
+        gap: 16px;
+    }
+
+    /* Produktkorten får en fastare bredd för tvåkolumnslayout */
+    .product-item {
+        /* Två kort per rad med flexbox */
+        flex: 1 1 calc(50% - 32px);
+        /* Minsta bredd innan radbrytning */
+        min-width: 280px;
+        /* Maxbredd för att hålla tvåkolumnslayout */
+        max-width: calc(50% - 16px);
+    }
+
+    /* Mindre padding på main */
+    main {
+        /* Mindre inre utfyllnad på surfplatta */
+        padding: 24px 16px 40px;
+    }
+
+    /* Minskar inre utfyllnad på den yttre formulärrutan */
+    .form-outer-box {
+        /* Mindre inre utfyllnad på surfplatta */
+        padding: 1.5rem;
+    }
+
+    /* Minskar inre utfyllnad på formulärsektionerna */
+    .form-fieldset {
+        /* Mindre inre utfyllnad på surfplatta */
+        padding: 1.25rem 1rem 0.75rem 1rem;
+    }
+
+    /* Kolumnerna i formuläret staplas vertikalt på surfplatta */
+    .form-row {
+        /* Staplar fälten vertikalt */
+        flex-direction: column;
+    }
+
+    /* Formulärknapparna staplas vertikalt */
+    .form-buttons {
+        /* Staplar knapparna ovanpå varandra */
+        flex-direction: column;
+    }
+
+    /* Formulärknapparna tar full bredd */
+    .btn-submit,
+    .btn-reset,
+    .btn-back {
+        /* Tar full bredd av sin behållare */
+        width: 100%;
+        /* Centrerar texten i knapparna */
+        text-align: center;
+    }
+
+    /* Tabellen får horisontell scrollning */
+    .pm-table-wrapper {
+        overflow-x: auto;
+    }
+}
+
+/* ------------------------------------------------------------
+   Mobil: 375px och mindre (för att webbsidan ska visas korrekt i Chrome DevTools behöver man temporärt ändra max-width till 376px)
+   ------------------------------------------------------------ */
+
+@media (max-width: 375px) {
+
+    /* Hamburgerknappen visas och placeras längst till höger */
+    .hamburger {
+        /* Visar hamburgaren som en flexrad */
+        display: flex;
+        /* Placerar hamburgaren längst till höger */
+        order: 3;
+        /* Avstånd till vänster om hamburgaren */
+        margin-left: 10px;
+    }
+
+    /* Headern tillåter radbrytning */
+    header {
+        /* Flexbox för horisontell layout */
+        display: flex;
+        /* Centrerar innehållet vertikalt */
+        align-items: center;
+        /* Tillåter radbrytning så nav faller ner */
+        flex-wrap: wrap;
+        /* Inre utfyllnad runt headern */
+        padding: 12px 16px;
+    }
+
+    /* Logotypen stannar till vänster och tar upp mellanrummet */
+    .logo {
+        /* Placerar logotypen längst till vänster */
+        order: 1;
+        /* Tar upp allt tomrum och pushar knapparna till höger */
+        flex: 1;
+    }
+
+    /* Mörkt-knappen hamnar till vänster om hamburgaren */
+    .change_color {
+        /* Placerar mörkt-knappen mellan logo och hamburger */
+        order: 2;
+        /* Tar bort auto-margin från desktop */
+        margin-left: 0;
+    }
+
+    /* Nav döljs och öppnas med JavaScript */
+    .nav {
+        /* Placerar nav sist så den faller ner på egen rad */
+        order: 4;
+        /* Tar full bredd på mobil */
+        width: 100%;
+        /* Döljs tills JavaScript lägger till .nav-open */
+        display: none;
+        /* Avstånd ovanför nav-menyn */
+        margin-top: 12px;
+    }
+
+    /* Nav-menyn visas när JavaScript lägger till klassen */
+    .nav.nav-open {
+        /* Visar nav-menyn */
+        display: block;
+    }
+
+    /* Nav-länkarna staplas vertikalt */
+    .nav ul {
+        /* Staplar länkarna vertikalt */
+        flex-direction: column;
+        /* Sträcker länkarna till full bredd */
+        align-items: stretch;
+        /* Avstånd mellan länkarna */
+        gap: 6px;
+    }
+
+    /* Enskilda nav-länkar på mobil */
+    .nav a.button {
+        /* Gör länken till ett blockelement */
+        display: block;
+        /* Centrerar texten i länken */
+        text-align: center;
+        /* Textstorlek på mobil */
+        font-size: 0.95rem;
+        /* Inre utfyllnad i länkarna */
+        padding: 10px 16px;
+    }
+
+    /* Nav-listan tillåts radbryta */
+    .nav ul {
+        /* Tillåter radbrytning i listan */
+        flex-wrap: wrap;
+        /* Centrerar länkarna horisontellt */
+        justify-content: center;
+    }
+
+    /* Produktkorten tar full bredd – ett kort per rad */
+    .product-item {
+        /* Ett kort per rad på mobil */
+        flex: 1 1 100%;
+        /* Tar bort minsta bredd */
+        min-width: unset;
+        /* Tar full bredd */
+        max-width: 100%;
+        /* Tar bort utomstående marginaler */
+        margin: 0;
+    }
+
+    /* Produktraden tar full bredd */
+    .products-row {
+        /* Mindre avstånd mellan korten på mobil */
+        gap: 12px;
+    }
+
+    /* Mindre padding på main */
+    main {
+        /* Mindre inre utfyllnad på mobil */
+        padding: 16px 12px 32px;
+    }
+
+    /* Rubrikerna krymper lite på mobil */
+    .title_2 h2 {
+        /* Mindre textstorlek på mobil */
+        font-size: 1.3rem;
+    }
+
+    /* Produktbilden lite högre på mobil för bättre proportion */
+    .product-bottom img {
+        /* Fast höjd på produktbilden */
+        height: 200px;
+    }
+
+    /* Knapparna tar full bredd på mobil */
+    .btn {
+        /* Tillåter texten att radbryta */
+        white-space: normal;
+    }
+
+    /* Minskar sidmarginalerna på formulärwrappern */
+    .form-wrapper {
+        /* Minskar sidmarginalerna på mobil */
+        padding: 0 0.5rem;
+    }
+
+    /* Minskar inre utfyllnad och hörnavrundning på yttre formulärrutan */
+    .form-outer-box {
+        /* Mindre inre utfyllnad på mobil */
+        padding: 1rem;
+        /* Lite mindre hörnavrundning på mobil */
+        border-radius: 10px;
+    }
+
+    /* Minskar inre utfyllnad och hörnavrundning på formulärsektionerna */
+    .form-fieldset {
+        /* Mindre inre utfyllnad på mobil */
+        padding: 1rem 0.75rem 0.75rem 0.75rem;
+        /* Lite mindre hörnavrundning på mobil */
+        border-radius: 8px;
+    }
+
+    /* Minskar textstorlek och padding på alla formulärfält */
+    .question-form input[type="text"],
+    .question-form input[type="email"],
+    .question-form input[type="tel"],
+    .question-form select,
+    .question-form textarea {
+        /* Något mindre textstorlek på mobil */
+        font-size: 0.95rem;
+        /* Något mindre inre utfyllnad på mobil */
+        padding: 0.6rem 0.75rem;
+    }
+
+    /* Ökar avstånd mellan radioknapparna på mobil */
+    .radio-group {
+        /* Lite mer avstånd mellan radioknapparna */
+        gap: 0.6rem;
+    }
+
+    /* Rubrikerna i formuläret krymper på mobil */
+    .title-2 h2 {
+        /* Mindre textstorlek på mobil */
+        font-size: 1.3rem;
+    }
+
+    /* #-kolumnen döljs på mobil för att ge mer plats */
+    .pm-table th:first-child,
+    .pm-table td:first-child {
+        display: none;
+    }
+
+    /* Mindre textstorlek i tabellen */
+    .pm-table thead th,
+    .pm-table tbody td {
+        font-size: 0.8rem;
+        padding: 10px 8px;
+    }
+
+    /* Beskrivningstexten centreras */
+    .pm-description p {
+        text-align: center;
+    }
+}
