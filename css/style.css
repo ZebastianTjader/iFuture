@@ -1,25 +1,24 @@
 /* ============================================================
-   iFuture – style.css
-   Webbutveckling 1 | Vecka 12: CSS grunddesign
+   iFuture - style.css
 
    TYPSNITT:
-   - 'Nunito'  – displaytypsnitt för rubriker (h1–h3)
-   - 'DM Sans' – brödtexttypsnitt för all övrig text
+   - 'Nunito'  - displaytypsnitt för rubriker (h1-h3)
+   - 'DM Sans' - brödtexttypsnitt för all övrig text
 
    FÄRGER (Apple.com-inspirerade):
-   - #f5f5f7  Ljusgrå      – bakgrundsfärg för body och main
-   - #ffffff  Vit           – kortbakgrunder, fakta-boxar och header
-   - #f0f0f5  Ljusgrå      – alternativ yta för produktkort
-   - #1c1c1e  Nästan svart  – primär textfärg
-   - #3a3a3c  Mörkgrå       – sekundär textfärg
-   - #6e6e73  Grå           – footer-text
-   - #d2d2d7  Ljusgrå       – kantlinjer och avdelare
-   - #0071e3  Apple-blå     – primärknapp och accentfärg
+   - #f5f5f7  Ljusgrå       - bakgrundsfärg för body och main
+   - #ffffff  Vit           - kortbakgrunder, fakta-boxar och header
+   - #f0f0f5  Ljusgrå       - alternativ yta för produktkort
+   - #1c1c1e  Nästan svart  - primär textfärg
+   - #3a3a3c  Mörkgrå       - sekundär textfärg
+   - #6e6e73  Grå           - footer-text
+   - #d2d2d7  Ljusgrå       - kantlinjer och avdelare
+   - #0071e3  Apple-blå     - primärknapp och interaktionsfärg
    ============================================================ */
 
 
 /* ------------------------------------------------------------
-   1. GRUNDSTILAR (Reset och Global)
+   1. Grundstilar (Reset och Global)
    ------------------------------------------------------------ */
 
 /* Nollställer alla element i alla webbläsare */
@@ -34,7 +33,7 @@
 
 /* Grundstil för hela webbsidan */
 body {
-    /* Ljusgrå bakgrundsfärg – Apples standardbakgrund */
+    /* Ljusgrå bakgrundsfärg - Apples standardbakgrund */
     background-color: #f5f5f7;
     /* Nästan svart textfärg */
     color: #1c1c1e;
@@ -60,7 +59,7 @@ p {
     line-height: 1.6;
 }
 
-/* Listor – tar bort bullets globalt */
+/* Listor - tar bort bullets globalt */
 ul {
     /* Tar bort bullets på listor */
     list-style: none;
@@ -86,14 +85,14 @@ a {
 
 
 /* ------------------------------------------------------------
-   2. HEADER
+   2. Header:
       En horisontell rad: logotyp till vänster,
       nav i mitten och mörkt-knapp till höger.
       Logotypen är klickbar och leder till startsidan.
       .name är dold via CSS men bevarad i HTML.
    ------------------------------------------------------------ */
 
-/* Header-container – en horisontell rad */
+/* Header-container - en horisontell rad */
 header {
     /* Vit bakgrundsfärg */
     background-color: #ffffff;
@@ -109,7 +108,7 @@ header {
     padding: 12px 24px;
 }
 
-/* Logotypen – klickbar länk till startsidan */
+/* Logotypen - klickbar länk till startsidan */
 .logo {
     /* Tar bort länkstil */
     text-decoration: none;
@@ -131,7 +130,7 @@ header {
     border-radius: 50%;
 }
 
-/* Döljer webbplatsnamnet "iFuture" – logotypen räcker */
+/* Döljer webbplatsnamnet "iFuture" - logotypen räcker */
 .name {
     /* Döljer elementet helt utan att ta bort det från HTML */
     display: none;
@@ -149,7 +148,7 @@ header {
 .nav ul {
     /* Flexbox för horisontell rad */
     display: flex;
-    /* Radbrytning inaktiveras – alla knappar på samma rad */
+    /* Radbrytning inaktiveras - alla knappar på samma rad */
     flex-wrap: nowrap;
     /* Centrerar länkarna */
     justify-content: center;
@@ -157,7 +156,7 @@ header {
     gap: 8px;
 }
 
-/* Enskilda navigationslänkar – Apple-stil pill-knappar */
+/* Enskilda navigationslänkar - Apple-stil pill-knappar */
 .nav a.button {
     /* Brödtexttypsnitt */
     font-family: 'DM Sans', Arial, Helvetica, sans-serif;
@@ -205,7 +204,7 @@ header {
 
 
 /* ------------------------------------------------------------
-   3. MAIN – GEMENSAMMA SEKTIONSSTILAR
+   3. Main - Gemensamma sektionsstilar 
    ------------------------------------------------------------ */
 
 /* Huvudinnehållet på alla sidor */
@@ -334,13 +333,13 @@ main {
     margin-top: 12px;
 }
 
-/* Länkar i faktaboxen i dark mode */
+/* Länkar i faktaboxen i mörkt läge */
 body.dark-mode .fact a {
     /* Ändrar färgen till ljusare blå för bättre kontrast */
     color: #4da3ff;
 }
 
-/* Fakta-box – informationstext på startsidan */
+/* Fakta-box - informationstext på startsidan */
 .fact {
     /* Brödtexttypsnitt */
     font-family: 'DM Sans', Arial, Helvetica, sans-serif;
@@ -370,7 +369,7 @@ body.dark-mode .fact a {
     flex-wrap: wrap;
     /* Jämnar ut höjden på alla kort */
     align-items: stretch;
-    /* Maxbredd – tre kort à 360px + marginaler + gap = ca 1180px */
+    /* Maxbredd - tre kort à 360px + marginaler + gap = ca 1180px */
     max-width: 1180px;
     /* Centrerar raden i main */
     margin-left: auto;
@@ -378,17 +377,17 @@ body.dark-mode .fact a {
     margin-right: auto;
 }
 
-/* Enskilt produkt- eller nyhetskort – tre per rad på desktop */
+/* Enskilt produkt- eller nyhetskort - tre per rad på desktop */
 .product-item {
     /* Flexbox för vertikal layout inuti kortet */
     display: flex;
     /* Staplar innehållet i kortet vertikalt */
     flex-direction: column;
-    /* Växer och krymper lika – grunden för tre per rad */
+    /* Växer och krymper lika - grunden för tre per rad */
     flex: 1 1 0;
-    /* Minsta bredd – under denna bryts till färre per rad */
+    /* Minsta bredd - under denna bryts till färre per rad */
     min-width: 280px;
-    /* Maxbredd – håller korten lagom breda */
+    /* Maxbredd - håller korten lagom breda */
     max-width: 360px;
     /* Yttre marginal runt boxarna */
     margin: 10px;
@@ -412,9 +411,9 @@ body.dark-mode .fact a {
     margin-bottom: 8px;
 }
 
-/* Fakta-box inuti produktkortet – beskrivningstext */
+/* Fakta-box inuti produktkortet - beskrivningstext */
 .product-item .fact {
-    /* Tar tillgänglig höjd – fyller utrymmet i kortet */
+    /* Tar tillgänglig höjd - fyller utrymmet i kortet */
     flex: 1;
     /* Avstånd nedanför fakta-boxen till nästa box */
     margin-bottom: 6px;
@@ -430,7 +429,7 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   4. PRODUKTKORT – BILD OCH KNAPPAR
+   4. Produktkort - Bild och knappar:
       Bild på egen rad, knappar staplade under.
       Allt inuti .fact-boxen så det hålls ihop.
    ------------------------------------------------------------ */
@@ -451,7 +450,7 @@ body.dark-mode .fact a {
     padding-top: 12px;
 }
 
-/* Produktbild – tar full bredd inuti boxen */
+/* Produktbild - tar full bredd inuti boxen */
 .product-bottom img {
     /* Full bredd */
     width: 100%;
@@ -527,9 +526,9 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   5. KNAPPAR – APPLE-STIL
+   5. Knappar - Apple-stil:
       Pill-form, sekundärknapp (outline) och
-      primärknapp (fylld blå för Köp hos Apple).
+      primärknapp (fylld blå för "Köp hos Apple").
    ------------------------------------------------------------ */
 
 /* Gemensam bas för alla knappar med klassen .btn */
@@ -560,7 +559,7 @@ body.dark-mode .fact a {
     border: 1px solid #0071e3;
 }
 
-/* Primärknapp – "Köp hos Apple" identifieras via target="_blank" */
+/* Primärknapp - "Köp hos Apple" identifieras via target="_blank" */
 .btn[target="_blank"] {
     /* Fylld Apple-blå bakgrundsfärg */
     background-color: #0071e3;
@@ -594,7 +593,7 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   6. index.html – STARTSIDAN
+   6. index.html - Startsidan
    ------------------------------------------------------------ */
 
 /* Informationssektionen */
@@ -617,7 +616,7 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   7. products.html – PRODUKTSIDAN
+   7. products.html - Produktsidan
    ------------------------------------------------------------ */
 
 /* Container för sökfältet */
@@ -654,8 +653,8 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   8. price_matching.html – JÄMFÖRA PRISER-SIDAN
-      Innehåll implementeras i vecka 17 med JavaScript.
+   8. price_matching.html - Jämför priser-sidan:
+      Innehåll implementeras med JavaScript.
    ------------------------------------------------------------ */
 
 /* Container för sektionen */
@@ -663,17 +662,6 @@ body.dark-mode .fact a {
     /* Avstånd nedanför sektionen */
     margin-bottom: 28px;
 }
-
-/* ============================================================
-   TILLÄGG TILL style.css – Sektion 8: price_matching.html
-   Klistra in detta block under den befintliga kommentaren
-   "8. price_matching.html – JÄMFÖRA PRISER-SIDAN"
-   ============================================================ */
-
-
-/* ------------------------------------------------------------
-   8. price_matching.html – JÄMFÖRA PRISER-SIDAN
-   ------------------------------------------------------------ */
 
 /* Container för sektionen */
 .price_matching-section {
@@ -738,7 +726,7 @@ body.dark-mode .fact a {
 .pm-search-input {
     /* Tar upp allt tillgängligt utrymme */
     flex: 1;
-    /* Tar bort kantlinjen – wrappern har kantlinjen */
+    /* Tar bort kantlinjen - wrappern har kantlinjen */
     border: none;
     /* Genomskinlig bakgrund */
     background-color: transparent;
@@ -750,7 +738,7 @@ body.dark-mode .fact a {
     font-size: 0.95rem;
     /* Nästan svart textfärg */
     color: #1c1c1e;
-    /* Tar bort fokusring – wrappern hanterar det */
+    /* Tar bort fokusring - wrappern hanterar det */
     outline: none;
     /* Pill-form på vänster sida */
     border-radius: 980px 0 0 980px;
@@ -859,7 +847,7 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   LADDNINGSINDIKATOR
+   Laddningsindikatorn
    ------------------------------------------------------------ */
 
 /* Laddningsindikatorns container */
@@ -918,7 +906,7 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   FELMEDDELANDE
+   Felmeddelande
    ------------------------------------------------------------ */
 
 /* Felmeddelande-container */
@@ -952,7 +940,7 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   RESULTATSEKTIONEN – RUBRIK OCH META
+   Resultatsektionen - Produktrubrik och kortfattad tilläggsinformation 
    ------------------------------------------------------------ */
 
 /* Resultat-container */
@@ -969,8 +957,10 @@ body.dark-mode .fact a {
     margin-bottom: 20px;
 }
 
-/* Produktrubrik i resultatsektion */
-.pm-result-header h3 {
+/* Produktrubrik i resultatsektion - används av div#pm-product-name
+   som ersätter h3-taggen för att undvika validatorvarning om tom rubrik.
+   Ger samma visuella stil som h3 hade */
+.pm-result-header .pm-product-title {
     /* Displaytypsnitt */
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
     /* Textstorlek */
@@ -993,7 +983,7 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   PRISTABELL
+   Pristabell
    ------------------------------------------------------------ */
 
 /* Wrapper för att möjliggöra horisontell scroll på liten skärm */
@@ -1078,7 +1068,7 @@ body.dark-mode .fact a {
     transition: background-color 0.15s;
 }
 
-/* Billigaste raden – framhävd med guld-bakgrund */
+/* Billigaste raden - framhävd med guld-bakgrund */
 .pm-row--cheapest {
     /* Ljusgul bakgrundsfärg */
     background-color: #fffbeb !important;
@@ -1118,7 +1108,7 @@ body.dark-mode .fact a {
 
 /* Länkknapp till butiken */
 .pm-store-link {
-    /* Tar bort block-displayen – tabellcellen hanterar layouten */
+    /* Tar bort block-displayen - tabellcellen hanterar layouten */
     display: inline-flex;
     /* Centrerar ikon och text */
     align-items: center;
@@ -1132,7 +1122,7 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   LAGERSTATUS-BADGE
+   Lagerstatus-badge
    ------------------------------------------------------------ */
 
 /* Gemensam bas för lagerstatus-badge */
@@ -1173,7 +1163,7 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   ANSVARSFRISKRIVNING UNDER TABELLEN
+   Ansvarsfirskrivning under tabellen 
    ------------------------------------------------------------ */
 
 /* Ansvarsfriskrivning */
@@ -1190,7 +1180,7 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   HJÄLPKLASS: visuellt dold men läsbar av skärmläsare
+   Hjälpklass: Visuellt dold men läsbar av skärmläsare
    ------------------------------------------------------------ */
 
 /* Döljer text visuellt men behåller den för skärmläsare */
@@ -1208,7 +1198,7 @@ body.dark-mode .fact a {
     /* Döljer innehåll som flödar utanför */
     overflow: hidden;
     /* Beskär innehållet */
-    clip: rect(0, 0, 0, 0);
+    clip-path: rect(0, 0, 0, 0);
     /* Förhindrar radbrytning */
     white-space: nowrap;
     /* Tar bort elementet ur layoutflödet */
@@ -1217,7 +1207,7 @@ body.dark-mode .fact a {
 
 
 /* ------------------------------------------------------------
-   DARK MODE – prisjämförelsewebbsidan
+   Mörk läge - Prisjämförelsewebbsidan
    ------------------------------------------------------------ */
 
 /* Sökfält-wrapper i mörkt läge */
@@ -1307,8 +1297,8 @@ body.dark-mode .pm-price {
     color: #f5f5f7;
 }
 
-/* Produktrubrik i mörkt läge */
-body.dark-mode .pm-result-header h3 {
+/* Produktrubrik-div i mörkt läge */
+body.dark-mode .pm-result-header .pm-product-title {
     /* Ljus textfärg */
     color: #f5f5f7;
 }
@@ -1328,8 +1318,7 @@ body.dark-mode .pm-error p {
 }
 
 /* ------------------------------------------------------------
-   9. questions.html – STÄLLA FRÅGOR-SIDAN
-      Formuläret byggs och stilas i vecka 16.
+   9. questions.html - Ställa frågor-sidan
    ------------------------------------------------------------ */
 
 /* Huvudrubrik ovanför formuläret */
@@ -1404,7 +1393,7 @@ body.dark-mode .pm-error p {
     color: #1c1c1e;
 }
 
-/* Kön-sektionen inuti ett fält – tar bort dubbel kantlinje */
+/* Kön-sektionen inuti ett fält - tar bort dubbel kantlinje */
 .radio-fieldset {
     /* Tar bort standardkantlinjen på fieldset */
     border: none;
@@ -1805,7 +1794,7 @@ body.dark-mode .btn-back:hover {
 
 
 /* ------------------------------------------------------------
-   MÖRKT LÄGE – Formulär
+   Mörkt läge - Formulär
    ------------------------------------------------------------ */
 
 /* Yttre rutan i mörkt läge */
@@ -1889,7 +1878,7 @@ body.dark-mode .terms-text {
 }
 
 /* ------------------------------------------------------------
-   10. about_us.html – OM OSS-SIDAN
+   10. about_us.html - Om oss-sidan
    ------------------------------------------------------------ */
 
 /* Sektionen med teambilden */
@@ -1951,15 +1940,15 @@ body.dark-mode .terms-text {
 }
 
 /* ------------------------------------------------------------
-   11. FOOTER
-       Vit bakgrund – samma som headern.
+   11. Footer:
+       Vit bakgrund, samma som headern.
    ------------------------------------------------------------ */
 
 /* Sidfot */
 footer {
     /* Brödtexttypsnitt */
     font-family: 'DM Sans', Arial, Helvetica, sans-serif;
-    /* Vit bakgrundsfärg – matchar headern */
+    /* Vit bakgrundsfärg - matchar headern */
     background-color: #ffffff;
     /* Subtil grå linje längst upp */
     border-top: 1px solid #d2d2d7;
@@ -2046,7 +2035,7 @@ body.dark-mode .footer-social a::after {
 }
 
 /* ============================================================
-   12. MÖRKT LÄGE – FÖRBERETT FÖR JAVASCRIPT (VECKA 17)
+   12. Mörkt läge:
        JavaScript lägger till klassen .dark-mode på <body>.
    ============================================================ */
 
@@ -2126,14 +2115,12 @@ body.dark-mode .btn {
     border-color: #2997ff;
 }
 
-/* Primärknapp i mörkt läge – behåller sin blå fyllning */
+/* Primärknapp i mörkt läge - behåller sin blå fyllning */
 body.dark-mode .btn[target="_blank"] {
     /* Apple-blå bakgrund bevaras */
     background-color: #0071e3;
     /* Vit textfärg bevaras */
     color: #ffffff;
-    /* Kantlinje matchar bakgrunden */
-    border-color: #0071e3;
 }
 
 /* Emoji-knapp i mörkt läge */
@@ -2175,10 +2162,10 @@ body.dark-mode .footer-social a {
 }
 
 /* ------------------------------------------------------------
-   HAMBURGERMENY – grundstilar (dold på desktop)
+   Hamburgermeny - Grundstilar (dold på desktop och surfplatta)
    ------------------------------------------------------------ */
 
-/* Hamburgerknappen – dold på desktop, visas på mobil */
+/* Hamburgerknappen - dold på desktop, visas på mobil */
 .hamburger {
     /* Döljer hamburgaren på desktop */
     display: none;
@@ -2218,9 +2205,19 @@ body.dark-mode .hamburger-bar {
     background-color: #f5f5f7;
 }
 
+/* Skicka-knappen i mörkt läge */
+body.dark-mode .btn-submit {
+    /* Vit textfärg för bättre kontrast mot blå bakgrund */
+    color: #ffffff;
+    /* Något ljusare blå för bättre synlighet i mörkt läge */
+    background-color: #2997ff;
+    /* Kantlinje matchar bakgrundsfärgen */
+    border-color: #2997ff;
+}
+
 /* ============================================================
-   13. RESPONSIV DESIGN – MEDIA QUERIES
-       Tre brytpunkter: 1366px (desktop), 768px (surfplatta),
+   13. Responsiv design - Media Queries: 
+       Tre brytpunkter: 1366px (desktop), 768px (surfplatta) och
        375px (mobil)
    ============================================================ */
 
@@ -2408,7 +2405,7 @@ body.dark-mode .hamburger-bar {
         justify-content: center;
     }
 
-    /* Produktkorten tar full bredd – ett kort per rad */
+    /* Produktkorten tar full bredd - ett kort per rad */
     .product-item {
         /* Ett kort per rad på mobil */
         flex: 1 1 100%;
