@@ -49,16 +49,18 @@
     <main>
         <section class="price_matching-section">
 
-            <!-- Huvudrubrik -->
+            <!-- Huvudrubriken jämföra priser -->
             <div class="title_2">
                 <h2>Jämföra priser</h2>
             </div>
 
             <!-- Beskrivning av funktionen -->
             <div class="pm-description fact">
-                <p>Sök efter en Apple-produkt nedan för att se de fem lägsta priserna från olika återförsäljare,
-                    sorterade från billigast till dyrast. Priserna hämtas via PricesAPI och uppdateras löpande.
-                    Klicka på "Gå till butik" för att gå direkt till butikens sida.</p>
+                <p>Sök efter en <strong>Apple-produkt</strong> nedan för att se de <strong>fem lägsta priserna</strong>
+                    från olika återförsäljare, sorterade från <strong>billigast till dyrast</strong>. Priserna hämtas
+                    via <strong>PricesAPI</strong> och uppdateras <strong>löpande</strong>. Klicka på <strong>"Gå till
+                        butik"</strong> för att gå direkt till butikens sida.
+                </p>
             </div>
 
             <!-- Sökfält -->
@@ -78,21 +80,21 @@
                 <ul class="pm-suggestions" id="pm-suggestions" role="listbox" aria-label="Produktförslag" hidden></ul>
             </div>
 
-            <!-- Resultatsektion – fylls i av JavaScript -->
+            <!-- Resultatsektion som fylls i av JavaScript -->
             <div id="pm-results" aria-live="polite" aria-atomic="true">
 
-                <!-- Laddningsindikator – visas medan API-anropet pågår -->
+                <!-- Laddningsindikator som visas medan API-anropet pågår -->
                 <div class="pm-loading" id="pm-loading" hidden>
                     <span class="pm-spinner" aria-hidden="true"></span>
                     <p>Hämtar priser...</p>
                 </div>
 
-                <!-- Felmeddelande – visas om API-anropet misslyckas eller ger tomt resultat -->
+                <!-- Felmeddelande som visas om API-anropet misslyckas eller ger ett tomt resultat -->
                 <div class="pm-error" id="pm-error" hidden role="alert">
                     <p id="pm-error-text"></p>
                 </div>
 
-                <!-- Produktrubrik och pristabell – fylls i dynamiskt -->
+                <!-- Produktrubrik och pristabell som fylls i dynamiskt -->
                 <div id="pm-result-content" hidden>
                     <div class="pm-result-header">
                         <div id="pm-product-name" class="pm-product-title"></div>
