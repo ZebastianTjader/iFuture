@@ -72,8 +72,7 @@
                                     <label for="fornamn">Förnamn: <span class="required-star"
                                             aria-hidden="true">*</span></label>
                                     <input type="text" id="fornamn" name="fornamn" placeholder="Ange ditt förnamn"
-                                        autocomplete="given-name" required aria-required="true"
-                                        aria-describedby="fornamn-error">
+                                        autocomplete="given-name" required aria-describedby="fornamn-error">
                                     <span class="form-error" id="fornamn-error" role="alert" aria-live="polite"></span>
                                 </div>
 
@@ -82,8 +81,7 @@
                                     <label for="efternamn">Efternamn: <span class="required-star"
                                             aria-hidden="true">*</span></label>
                                     <input type="text" id="efternamn" name="efternamn" placeholder="Ange ditt efternamn"
-                                        autocomplete="family-name" required aria-required="true"
-                                        aria-describedby="efternamn-error">
+                                        autocomplete="family-name" required aria-describedby="efternamn-error">
                                     <span class="form-error" id="efternamn-error" role="alert"
                                         aria-live="polite"></span>
                                 </div>
@@ -97,7 +95,7 @@
                                             aria-hidden="true">*</span></legend>
                                     <div class="radio-group">
                                         <label class="radio-label">
-                                            <input type="radio" name="kon" value="man" required aria-required="true">
+                                            <input type="radio" name="kon" value="man" required>
                                             Man
                                         </label>
                                         <label class="radio-label">
@@ -125,8 +123,7 @@
                                     <label for="epost">E-postadress: <span class="required-star"
                                             aria-hidden="true">*</span></label>
                                     <input type="email" id="epost" name="epost" placeholder="namn@exempel.com"
-                                        autocomplete="email" required aria-required="true"
-                                        aria-describedby="epost-error">
+                                        autocomplete="email" required aria-describedby="epost-error">
                                     <span class="form-error" id="epost-error" role="alert" aria-live="polite"></span>
                                 </div>
 
@@ -135,7 +132,7 @@
                                     <label for="telefonnummer">Telefonnummer: <span class="required-star"
                                             aria-hidden="true">*</span></label>
                                     <input type="tel" id="telefonnummer" name="telefonnummer" placeholder="0701234567"
-                                        autocomplete="tel" pattern="[0-9\s\+\-]{7,15}" required aria-required="true"
+                                        autocomplete="tel" pattern="[0-9\s\+\-]{7,15}" required
                                         aria-describedby="phone-error phone-hint">
                                     <span class="form-hint" id="phone-hint">Ange ett giltigt telefonnummer, såsom
                                         0701234567.</span>
@@ -153,8 +150,7 @@
                             <div class="form-group">
                                 <label for="enhet">Vilken enhet vill du veta mer om? <span class="required-star"
                                         aria-hidden="true">*</span></label>
-                                <select id="enhet" name="enhet" required aria-required="true"
-                                    aria-describedby="device-error">
+                                <select id="enhet" name="enhet" required aria-describedby="device-error">
                                     <option value="">-- Välj en enhet --</option>
                                     <optgroup label="iPhone">
                                         <option value="iPhone 17 Pro Max">iPhone 17 Pro Max</option>
@@ -197,7 +193,7 @@
                                 <label for="fraga" id="question-label">Vad undrar du om enheten som du har valt ovan?
                                     <span class="required-star" aria-hidden="true">*</span></label>
                                 <textarea id="fraga" name="fraga" rows="6" placeholder="Skriv din fråga här..."
-                                    maxlength="1000" required aria-required="true"
+                                    maxlength="1000" required
                                     aria-describedby="question-error question-hint"></textarea>
                                 <span class="form-hint" id="question-hint">Max 1 000 tecken.</span>
                                 <span class="form-error" id="question-error" role="alert" aria-live="polite"></span>
@@ -212,7 +208,7 @@
                                     behandlar dina personuppgifter i syfte att besvara din förfrågan. Dina uppgifter
                                     delas inte med tredje part och raderas när ärendet är avslutat.</p>
                                 <label class="radio-label">
-                                    <input type="checkbox" id="terms" name="terms" required aria-required="true">
+                                    <input type="checkbox" id="terms" name="terms" required>
                                     Jag godkänner att iFuture behandlar mina personuppgifter. <span
                                         class="required-star" aria-hidden="true">*</span>
                                 </label>
