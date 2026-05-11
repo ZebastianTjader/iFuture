@@ -1,35 +1,32 @@
 /* ============================================================
-   prices_api.js
-   Webbutveckling 1 | Vecka 17: fetch() och JSON
-
-   Hanterar PricesAPI-integrationen på sidan "Jämföra priser".
+   iFuture - prices_api.js
+   - fetch() och JSON
+   - Hanterar PricesAPI-integrationen på sidan "Jämföra priser"
 
    FLÖDE:
-   1. Användaren skriver in ett produktnamn i sökfältet.
-   2. Autocomplete-dropdown visas med matchande produkter.
-   3. Användaren väljer en produkt eller trycker på Sök.
-   4. fetch() anropar PricesAPI (simulerat med lokal JSON-data).
+   1. Användaren skriver in ett produktnamn i sökfältet
+   2. Autocomplete-dropdown visas med matchande produkter
+   3. Användaren väljer en produkt eller trycker på Sök
+   4. fetch() anropar PricesAPI (simulerat med lokal JSON-data)
    5. Svaret parsas och de 5 billigaste butikerna visas i en tabell,
-      sorterade från billigast till dyrast.
+      sorterade från billigast till dyrast
    ============================================================ */
 
 
 /* ------------------------------------------------------------
-   1. PRODUKTDATABAS (SIMULERAD PricesAPI-DATA)
+   1. Produktdatabas (Simulerad PricesAPI-Data):
       I ett riktigt projekt ersätts detta block med ett
-      fetch()-anrop mot den riktiga API-endpointen, t.ex.:
-        fetch(`https://api.pricesapi.com/v1/search?q=${produktnamn}&apikey=DIN_NYCKEL`)
-      Gratisnivån ger ~1 000 anrop/månad.
+      fetch()-anrop mot den riktiga API-endpointen, såsom: fetch(`https://api.pricesapi.com/v1/search?q=${produktnamn}&apikey=DIN_NYCKEL`)
    ------------------------------------------------------------ */
 
 /**
- * Simulerad produktdatabas med prisuppgifter per butik.
- * Varje produkt har ett id, ett namn och en lista med butiksuppgifter.
+ * Simulerad produktdatabas med prisuppgifter per butik
+ * Varje produkt har ett id, ett namn och en lista med butiksuppgifter
  * @type {Array<Object>}
  */
 /* ============================================================
-   1. FULLSTÄNDIG PRODUKTDATABAS (PRICES_DB)
-   Varje produkt har nu 5 butiker i Sverige med priser och länkar.
+   1. Fullständig produktdatabas (PRICES_DB):
+   Varje produkt har nu 5 butiker i Sverige med priser och länkar
    ============================================================ */
 
 const PRICES_DB = [
@@ -256,15 +253,15 @@ const PRICES_DB = [
 ];
 
 /* ------------------------------------------------------------
-   2. SIMULERAD fetch() MOT PricesAPI
+   2. Simulerad fetch() mot PricesAPI:
       fetchPrices() efterliknar ett riktigt API-anrop med fetch().
       Data returneras som ett Promise med ett JSON-liknande objekt,
-      precis som PricesAPI skulle svara.
+      precis som PricesAPI skulle svara
    ------------------------------------------------------------ */
 
 /**
- * Simulerar ett fetch()-anrop mot PricesAPI.
- * Returnerar ett Promise med JSON-data för den sökta produkten.
+ * Simulerar ett fetch()-anrop mot PricesAPI
+ * Returnerar ett Promise med JSON-data för den sökta produkten
  *
  * I ett riktigt projekt används istället:
  *   fetch(`https://api.pricesapi.com/v1/search?q=${encodeURIComponent(query)}&apikey=DIN_NYCKEL`)
@@ -276,7 +273,7 @@ const PRICES_DB = [
 function fetchPrices(query) {
     return new Promise((resolve, reject) => {
 
-        /* Simulerar nätverksfördröjning (300–700 ms) */
+        /* Simulerar nätverksfördröjning (300-700 ms) */
         const delay = 300 + Math.random() * 400;
 
         setTimeout(() => {
@@ -304,7 +301,7 @@ function fetchPrices(query) {
             /* Begränsar till de 5 billigaste butikerna */
             const top5 = sortedStores.slice(0, 5);
 
-            /* Returnerar ett JSON-liknande svar – samma struktur som PricesAPI */
+            /* Returnerar ett JSON-liknande svar - samma struktur som PricesAPI */
             resolve({
                 status: 200,
                 data: {
@@ -328,7 +325,7 @@ function fetchPrices(query) {
 
 
 /* ------------------------------------------------------------
-   3. HJÄLPFUNKTIONER
+   3. Hjälpfunktioner
    ------------------------------------------------------------ */
 
 /**
@@ -387,7 +384,7 @@ function getProductSuggestions(query) {
 
 
 /* ------------------------------------------------------------
-   4. VISA RESULTAT I TABELLEN
+   4. Visa rersultat i tabellen
    ------------------------------------------------------------ */
 
 /**
@@ -436,14 +433,13 @@ function renderResults(data) {
 
 
 /* ------------------------------------------------------------
-   5. SÖKLOGIK – HANTERAR SÖKNING MED fetch()
+   5. Söklogik - Hanterar sökning med fetch()
    ------------------------------------------------------------ */
 
 /**
- * Utför sökningen: visar laddningsindikatorn, anropar fetchPrices()
- * och hanterar både lyckat svar och fel.
+ * Utför sökningen: visar laddningsindikatorn, anropar fetchPrices() och hanterar både lyckat svar och fel.
  * @param {string} query - Söktermen
- */
+**/
 async function performSearch(query) {
     if (!query || !query.trim()) return;
 
@@ -476,7 +472,7 @@ async function performSearch(query) {
 
 
 /* ------------------------------------------------------------
-   6. AUTOCOMPLETE – DROPDOWN MED PRODUKTFÖRSLAG
+   6. Autocomplete - Dropdown med produktförslag
    ------------------------------------------------------------ */
 
 /** @type {number} - Index för tangentbordsnavigering i dropdown */
@@ -551,7 +547,7 @@ function setActiveSuggestion(newIndex, list) {
 
 
 /* ------------------------------------------------------------
-   7. HÄNDELSELYSSNARE – KÖRS NÄR SIDAN HAR LADDATS
+   7. Händelselyssnare - Körs när sidan har laddats
    ------------------------------------------------------------ */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -560,7 +556,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchBtn = document.getElementById("pm-search-btn");
     const suggestions = document.getElementById("pm-suggestions");
 
-    /* Finns inte elementen på sidan – avsluta tidigt */
+    /* Finns inte elementen på sidan - avsluta tidigt */
     if (!searchInput || !searchBtn) return;
 
     /* --- Sökknapp: utför sökning --- */
@@ -597,13 +593,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    /* --- Tangentbordsinmatning: uppdatera autocomplete --- */
+    /* --- Tangentbordsinmatning: Uppdatera autocomplete --- */
     searchInput.addEventListener("input", () => {
         const matches = getProductSuggestions(searchInput.value);
         showSuggestions(matches);
     });
 
-    /* --- Klick utanför sökfältet: dölj dropdown --- */
+    /* --- Klick utanför sökfältet: Dölj dropdown --- */
     document.addEventListener("click", (event) => {
         if (!searchInput.contains(event.target) && !suggestions.contains(event.target)) {
             hideSuggestions();
