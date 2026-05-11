@@ -2220,6 +2220,73 @@ body.dark-mode .btn-submit {
    ============================================================ */
 
 /* ------------------------------------------------------------
+   Hamburgermeny: 900px och mindre aktiverar hamburgermenyn när nav-knapparna inte får plats
+   ------------------------------------------------------------ */
+
+@media (max-width: 900px) {
+
+    /* Headern tillåter radbrytning och därav faller nav ner på en egen rad */
+    header {
+        /* Tillåter radbrytning */
+        flex-wrap: wrap;
+    }
+
+    /* Hamburgerknappen visas och placeras längst upp till höger */
+    .hamburger {
+        /* Visar hamburgaren som en flexrad */
+        display: flex;
+        /* Placerar hamburgaren längst till höger */
+        order: 3;
+    }
+
+    /* Logotypen tar upp mellanrummet och flyttar knapparna till höger */
+    .logo {
+        /* Tar upp allt tillgängligt utrymme */
+        flex: 1;
+    }
+
+    /* Nav döljs och öppnas med JavaScript */
+    .nav {
+        /* Placerar nav sist, i syfte att den ska falla ner på sin egna rad */
+        order: 4;
+        /* Tar full bredd, i syfte att den ska hamna på sin egna rad */
+        width: 100%;
+        /* Döljs tills JavaScript lägger till .nav-open */
+        display: none;
+        /* Avstånd ovanför nav-menyn */
+        margin-top: 12px;
+    }
+
+    /* Nav-menyn visas när JavaScript lägger till klassen */
+    .nav.nav-open {
+        /* Visar nav-menyn */
+        display: block;
+    }
+
+    /* Nav-länkarna staplas vertikalt */
+    .nav ul {
+        /* Staplar länkarna vertikalt */
+        flex-direction: column;
+        /* Sträcker länkarna till full bredd */
+        align-items: stretch;
+        /* Avstånd mellan länkarna */
+        gap: 6px;
+    }
+
+    /* Enskilda nav-länkar */
+    .nav a.button {
+        /* Gör länken till ett blockelement */
+        display: block;
+        /* Centrerar texten */
+        text-align: center;
+        /* Textstorlek */
+        font-size: 0.95rem;
+        /* Inre utfyllnad */
+        padding: 10px 16px;
+    }
+}
+
+/* ------------------------------------------------------------
    Surfplatta: 768px och mindre
    ------------------------------------------------------------ */
 
