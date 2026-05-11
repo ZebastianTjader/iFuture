@@ -7,7 +7,7 @@
     <!-- Gör sidan responsiv på olika skärmstorlekar -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Titel på webbsidan som visas i webbläsarfliken -->
-    <title>Produkter - iFuture</title>
+    <title>Ställa frågor - iFuture</title>
     <!-- Favicon: En liten ikon i webbläsarfliken -->
     <link rel="icon" type="images/x-icon" href="images/profile.png">
     <!-- Google Fonts: Inter, Roboto och Montserrat -->
@@ -47,983 +47,197 @@
         </div>
     </header>
     <main>
-        <!-- Sökfält -->
-        <div class="search-section">
-            <div class="pm-search-wrapper" role="search">
-                <label for="product_search" class="sr-only">Sök Apple-produkt</label>
-                <input type="search" id="product_search" name="product_search" class="search-input pm-search-input"
-                    placeholder="Sök efter en produkt, t.ex. iPhone 17 Pro..." autocomplete="off"
-                    aria-label="Sök efter Apple-produkt" aria-controls="product-suggestions" aria-autocomplete="list">
-                <button type="button" class="pm-search-btn" id="product-search-btn" aria-label="Sök">
-                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Sök
-                </button>
-            </div>
-            <ul class="pm-suggestions" id="product-suggestions" role="listbox" aria-label="Produktförslag" hidden></ul>
-        </div>
-
-        <!-- Sektion för Apple-produkter från året 2026 -->
-        <section class="products-section">
-
-            <!-- Årsrubrik 2026 -->
-            <div class="title_2">
-                <h2>Apple-produkter 2026</h2>
+        <section class="ask-questions-section">
+            <!-- Huvudrubrik -->
+            <div class="title-2">
+                <h2>Ställ din fråga:</h2>
             </div>
 
-            <!-- Underrubrik för iPhone 17-serien -->
-            <div class="title_2">
-                <h3>iPhone 17-serien:</h3>
-            </div>
+            <!-- Yttre wrapper för centrering -->
+            <div class="form-wrapper">
+                <!-- Yttre ruta som håller ihop hela formuläret -->
+                <div class="form-outer-box">
 
-            <!-- Produktrad: iPhone 17-serien 2026 -->
-            <div class="products-row">
+                    <form class="question-form" id="question-form" action="/skicka" method="post">
 
-                <!-- Produktkort: iPhone 17e -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>iPhone 17e</h3>
-                    </div>
-                    <div class="fact">
-                        <p>iPhone 17e är 2026 års prisvärdaste iPhone och erbjuder många av de funktioner som finns
-                            i
-                            iPhone 17, men till ett lägre pris. Den har samma A19-chip som resten av iPhone
-                            17-familjen,
-                            en uppgraderad 48 MP-kamera med optisk bildstabilisering och är den första "e"-modellen
-                            som
-                            stöder MagSafe-laddning. Dessutom dubblas baslagringen till 256 GB jämfört med
-                            föregångaren,
-                            utan att startpriset höjs.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-5">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>6,1″ Super Retina XDR OLED-skärm med upp till 1 200 nits peak HDR-ljusstyrka.</li>
-                                <li>A19-chip med 6-kärnig CPU, 4-kärnig GPU och 16-kärnig Neural Engine - byggt på 3
-                                    nm-teknik.
-                                </li>
-                                <li>48 MP Fusion-kamera med f/1,6-bländare, optisk bildstabilisering och stöd för 12 MP
-                                    2x-telefoto.</li>
-                                <li>MagSafe-stöd för första gången i "e"-serien - upp till 15 W trådlös laddning med
-                                    Qi2-kompatibla laddare.</li>
-                                <li>Batteritid upp till 26 timmars videouppspelning, 50 % laddning på ca 30 min med 20
-                                    W-adapter.</li>
-                                <li>Hållbar aluminiumram med Ceramic Shield 2-framsida och IP68-klassad vattentålighet
-                                    (6 m i 30
-                                    min).</li>
-                                <li>Lagring från 256 GB, iOS 26 och stöd för Apple Intelligence.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/iphone_17e_2026.webp" alt="iPhone 17e" width="375" height="423"
-                                loading="lazy">
+                        <!-- Sektionen om dig -->
+                        <fieldset class="form-fieldset">
+                            <legend>Om dig</legend>
 
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-5">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/iphone-17e/" target="_blank" class="btn">Köp hos
-                                    Apple: Från 8 495
-                                    kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
+                            <!-- Förnamn och efternamn i två kolumner -->
+                            <div class="form-row">
+
+                                <!-- Förnamn -->
+                                <div class="form-group">
+                                    <label for="fornamn">Förnamn: <span class="required-star"
+                                            aria-hidden="true">*</span></label>
+                                    <input type="text" id="fornamn" name="fornamn" placeholder="Ange ditt förnamn"
+                                        autocomplete="given-name" required aria-describedby="fornamn-error">
+                                    <span class="form-error" id="fornamn-error" role="alert" aria-live="polite"></span>
+                                </div>
+
+                                <!-- Efternamn -->
+                                <div class="form-group">
+                                    <label for="efternamn">Efternamn: <span class="required-star"
+                                            aria-hidden="true">*</span></label>
+                                    <input type="text" id="efternamn" name="efternamn" placeholder="Ange ditt efternamn"
+                                        autocomplete="family-name" required aria-describedby="efternamn-error">
+                                    <span class="form-error" id="efternamn-error" role="alert"
+                                        aria-live="polite"></span>
+                                </div>
+
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Underrubrik för MacBook och iPad 2026 -->
-            <div class="title_2">
-                <h3>MacBook och iPad:</h3>
-            </div>
-
-            <!-- Produktrad: MacBook och iPad 2026 -->
-            <div class="products-row">
-
-                <!-- Produktkort: MacBook Neo -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>MacBook Neo</h3>
-                    </div>
-                    <div class="fact">
-                        <p>MacBook Neo är Apples billigaste bärbara dator någonsin och riktar sig till studenter och
-                            vardagsanvändare som vill ha Mac-upplevelsen till ett överraskande lågt pris. Det är
-                            också
-                            den första Mac-datorn som drivs av ett A-seriens chip "A18 Pro", alltså samma chip som
-                            finns
-                            i iPhone 16 Pro. Den kommer i fyra livliga färger och erbjuder upp till 16 timmars
-                            batteritid samt full kompatibilitet med macOS och Apple Intelligence.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-6">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>A18 Pro-chip med 6-kärnig CPU och 5-kärnig GPU samt 16-kärnig Neural Engine.</li>
-                                <li>13″ Liquid Retina-skärm med 2 408 × 1 506 pixlars upplösning och 500 nits
-                                    ljusstyrka.</li>
-                                <li>8 GB unified memory och 256 GB lagring i basmodellen (512 GB-modell med Touch ID
-                                    tillgänglig).</li>
-                                <li>Upp till 16 timmars batteritid vid webbanvändning.</li>
-                                <li>Hållbart aluminiumhölje i återvunnet material, tillgänglig i färgerna "Silver",
-                                    "Blush",
-                                    "Citrus" och "Indigo".</li>
-                                <li>Två USB-C-portar (en USB 3, en USB 2) samt hörlursuttag. Wi-Fi 6E och Bluetooth 6.
-                                </li>
-                                <li>Fullt stöd för macOS Tahoe och Apple Intelligence.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/macbook_neo_2026.webp" alt="MacBook Neo" width="640" height="390"
-                                loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-6">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/macbook-neo/" target="_blank" class="btn">Köp hos
-                                    Apple: Från 7 995
-                                    kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
+                            <!-- Kön -->
+                            <div class="form-group">
+                                <fieldset class="radio-fieldset">
+                                    <legend>Vilket kön identifierar du dig som? <span class="required-star"
+                                            aria-hidden="true">*</span></legend>
+                                    <div class="radio-group">
+                                        <label class="radio-label">
+                                            <input type="radio" name="kon" value="man" required>
+                                            Man
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="kon" value="kvinna">
+                                            Kvinna
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="kon" value="annat">
+                                            Annat/Vill ej ange
+                                        </label>
+                                    </div>
+                                </fieldset>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </fieldset>
 
-                <!-- Produktkort: MacBook Pro (M5 Pro och M5 Max) -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>MacBook Pro (M5 Pro och M5 Max)</h3>
-                    </div>
-                    <div class="fact">
-                        <p>MacBook Pro 2026 levereras med Apples kraftfullaste chip hittills - M5 Pro och M5 Max -
-                            med
-                            en helt ny Fusion Architecture som kombinerar CPU och GPU i separata block för maximal
-                            prestanda. Den riktar sig till professionella användare inom videoredigering,
-                            3D-rendering,
-                            mjukvaruutveckling och andra krävande arbetsflöden. Nytt för denna generation är bland
-                            annat
-                            Wi-Fi 7 via Apples egenutvecklade N1-chip, Thunderbolt 5 och SSD-hastigheter upp till
-                            14,5 GB/s.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-7">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>M5 Pro- eller M5 Max-chip med upp till 18-kärnig CPU och upp till 40-kärnig GPU.
-                                </li>
-                                <li>14,2″ eller 16,2″ Liquid Retina XDR-skärm med ProMotion (upp till 120 Hz) och upp
-                                    till 1 000
-                                    nits SDR-ljusstyrka.</li>
-                                <li>Lagring startar på 1 TB (M5 Pro) respektive 2 TB (M5 Max); upp till 8 TB
-                                    tillgängligt.</li>
-                                <li>Upp till 128 GB unified memory med 614 GB/s minnesbandbredd (M5 Max).</li>
-                                <li>Wi-Fi 7 och Bluetooth 6 via Apples N1-chip. Tre Thunderbolt 5-portar, HDMI och
-                                    SD-kortläsare.</li>
-                                <li>Batteritid upp till 24 timmars videoströmning.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/macbook_pro_m5_pro_and_max_2026.webp" alt="MacBook Pro med M5 Pro-chip"
-                                width="639" height="390" loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-7">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/macbook-pro/" target="_blank" class="btn">Köp hos
-                                    Apple: Från 21
-                                    995 kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
+                        <!-- Sektion för kontaktuppgifter -->
+                        <fieldset class="form-fieldset">
+                            <legend>Kontaktuppgifter</legend>
+
+                            <!-- E-post och telefon i två kolumner -->
+                            <div class="form-row">
+
+                                <!-- E-postadress -->
+                                <div class="form-group">
+                                    <label for="epost">E-postadress: <span class="required-star"
+                                            aria-hidden="true">*</span></label>
+                                    <input type="email" id="epost" name="epost" placeholder="namn@exempel.com"
+                                        autocomplete="email" required aria-describedby="epost-error">
+                                    <span class="form-error" id="epost-error" role="alert" aria-live="polite"></span>
+                                </div>
+
+                                <!-- Telefonnummer -->
+                                <div class="form-group">
+                                    <label for="telefonnummer">Telefonnummer: <span class="required-star"
+                                            aria-hidden="true">*</span></label>
+                                    <input type="tel" id="telefonnummer" name="telefonnummer" placeholder="0701234567"
+                                        autocomplete="tel" pattern="[0-9\s\+\-]{7,15}" required
+                                        aria-describedby="phone-error phone-hint">
+                                    <span class="form-hint" id="phone-hint">Ange ett giltigt telefonnummer, såsom
+                                        0701234567.</span>
+                                    <span class="form-error" id="phone-error" role="alert" aria-live="polite"></span>
+                                </div>
+
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </fieldset>
 
-                <!-- Produktkort: MacBook Air (M5) -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>MacBook Air (M5)</h3>
-                    </div>
-                    <div class="fact">
-                        <p>MacBook Air 2026 uppgraderas till Apples M5-chip och är fortfarande den tunnaste och
-                            lättaste Mac-datorn i sortimentet. Den kombinerar kraftfull prestanda, upp till 18
-                            timmars
-                            batteritid och en snygg design - perfekt för studenter, kreatörer och alla som behöver
-                            en
-                            pålitlig och portabel dator till vardags. Baslagringen fördubblas till 512 GB jämfört
-                            med
-                            föregångaren, utan att priset höjs.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-8">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>M5-chip med 10-kärnig CPU, upp till 10-kärnig GPU och Neural Accelerator i varje
-                                    kärna.</li>
-                                <li>13,6″ eller 15,3″ Liquid Retina-skärm med True Tone och stöd för 1 miljard färger.
-                                </li>
-                                <li>Lagring startar på 512 GB (upp till 4 TB konfigurerbart).</li>
-                                <li>Upp till 18 timmars batteritid; stöd för två externa skärmar.</li>
-                                <li>Magic Keyboard med Touch ID och stor Multi-Touch-styrplatta.</li>
-                                <li>Tillgänglig i Sky Blue, Midnight, Starlight och Silver. Wi-Fi 7 och Bluetooth 6.
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/macbook_air_m5_2026.webp" alt="MacBook Air med M5-chip" width="637"
-                                height="392" loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-8">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/macbook-air/" target="_blank" class="btn">Köp hos
-                                    Apple: Från 13
-                                    995 kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
+                        <!-- Sektion för ärende -->
+                        <fieldset class="form-fieldset">
+                            <legend>Ärende</legend>
+
+                            <!-- Välj enhet -->
+                            <div class="form-group">
+                                <label for="enhet">Vilken enhet vill du veta mer om? <span class="required-star"
+                                        aria-hidden="true">*</span></label>
+                                <select id="enhet" name="enhet" required aria-describedby="device-error">
+                                    <option value="">-- Välj en enhet --</option>
+                                    <optgroup label="iPhone">
+                                        <option value="iPhone 17 Pro Max">iPhone 17 Pro Max</option>
+                                        <option value="iPhone 17 Pro">iPhone 17 Pro</option>
+                                        <option value="iPhone Air">iPhone Air</option>
+                                        <option value="iPhone 17">iPhone 17</option>
+                                        <option value="iPhone 17e">iPhone 17e</option>
+                                    </optgroup>
+                                    <optgroup label="MacBook">
+                                        <option value="MacBook Pro (M5 Pro och M5 Max)">MacBook Pro (M5 Pro och M5 Max)
+                                        </option>
+                                        <option value="MacBook Pro (M5)">MacBook Pro (M5)</option>
+                                        <option value="MacBook Air (M5)">MacBook Air (M5)</option>
+                                        <option value="MacBook Neo">MacBook Neo</option>
+                                        <option value="MacBook Air (M4)">MacBook Air (M4)</option>
+                                    </optgroup>
+                                    <optgroup label="iPad">
+                                        <option value="iPad Pro (M5)">iPad Pro (M5)</option>
+                                        <option value="iPad Air (M4)">iPad Air (M4)</option>
+                                        <option value="iPad Air (M3)">iPad Air (M3)</option>
+                                        <option value="iPad (11th gen) (A16)">iPad (11th gen) (A16)</option>
+                                    </optgroup>
+                                    <optgroup label="Display">
+                                        <option value="Studio Display XDR">Studio Display XDR</option>
+                                        <option value="Studio Display">Studio Display</option>
+                                    </optgroup>
+                                    <optgroup label="Apple Watch">
+                                        <option value="Apple Watch Series Ultra 3">Apple Watch Series Ultra 3</option>
+                                        <option value="Apple Watch Series 11">Apple Watch Series 11</option>
+                                    </optgroup>
+                                    <optgroup label="AirPods">
+                                        <option value="AirPods Pro 3">AirPods Pro 3</option>
+                                    </optgroup>
+                                </select>
+                                <span class="form-error" id="device-error" role="alert" aria-live="polite"></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Produktkort: iPad Air (M4) -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>iPad Air (M4)</h3>
-                    </div>
-                    <div class="fact">
-                        <p>iPad Air 2026 uppgraderas till Apples M4-chip. Minnet ökas från 8 GB till 12 GB, vilket
-                            ger
-                            smidigare multitasking och bättre förutsättningar för Apples AI-funktioner. Designen och
-                            startpriset är oförändrade, vilket gör den till ett utmärkt val för den som vill ha
-                            kraftfull prestanda i ett lätt och tunt format.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-9">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>M4-chip med 8-kärnig CPU, 9-kärnig GPU och 16-kärnig Neural Engine - upp till 30 %
-                                    snabbare
-                                    än M3-modellen.</li>
-                                <li>11″ eller 13″ Liquid Retina-skärm med True Tone och P3 wide color.</li>
-                                <li>12 GB unified memory (upp från 8 GB) med 120 GB/s minnesbandbredd.</li>
-                                <li>Lagring från 128 GB (upp till 1 TB), stöder Apple Pencil Pro och Magic Keyboard.
-                                </li>
-                                <li>Wi-Fi 7 och Bluetooth 6 via Apples N1-chip, cellulära modeller har C1X-modem.</li>
-                                <li>Tunn (6,1 mm) och lätt (~462 g för 11-tums Wi-Fi-modellen).</li>
-                                <li>Tillgänglig i "Space Gray", "Blue", "Purple" och "Starlight". Stöd för Apple
-                                    Intelligence.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/ipad_air_m4_2026.webp" alt="iPad Air med M4-chip" width="1399" height="847"
-                                loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-9">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/ipad-air/" target="_blank" class="btn">Köp hos Apple:
-                                    Från 7 795
-                                    kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
+                            <!-- Frågetext -->
+                            <div class="form-group">
+                                <label for="fraga" id="question-label">Vad undrar du om enheten som du har valt ovan?
+                                    <span class="required-star" aria-hidden="true">*</span></label>
+                                <textarea id="fraga" name="fraga" rows="6" placeholder="Skriv din fråga här..."
+                                    maxlength="1000" required
+                                    aria-describedby="question-error question-hint"></textarea>
+                                <span class="form-hint" id="question-hint">Max 1 000 tecken.</span>
+                                <span class="form-error" id="question-error" role="alert" aria-live="polite"></span>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        </fieldset>
 
-                <!-- Produktkort: iPad (11th gen) (A16) -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>iPad (11th gen) (A16)</h3>
-                    </div>
-                    <div class="fact">
-                        <p>iPad 2026 är elfte generationens iPad och är Apples mest prisvärda surfplatta för
-                            vardagsbruk, studier och underhållning. Den drivs av A16 Bionic-chippet och erbjuder
-                            kraftfull prestanda till ett överkomligt pris. Med en 10,9-tums Liquid Retina-skärm,
-                            USB-C-anslutning och stöd för Apple Pencil (1:a generationen) är den perfekt för
-                            anteckningar, streaming och lättare produktivitetsuppgifter.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-10">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>A16 Bionic-chip med 6-kärnig CPU, 5-kärnig GPU och 16-kärnig Neural Engine.</li>
-                                <li>10,9″ Liquid Retina-skärm med 2 360 × 1 640 pixlars upplösning, True Tone och P3
-                                    wide color.
-                                </li>
-                                <li>64 GB eller 256 GB lagring, 4 GB unified memory.</li>
-                                <li>12 MP ultravidvinkelskamera på framsidan med Center Stage-stöd, 12 MP
-                                    vidvinkelkamera på
-                                    baksidan.</li>
-                                <li>Batteritid upp till 10 timmars webbanvändning eller videouppspelning.</li>
-                                <li>USB-C-anslutning, Wi-Fi 6 och Bluetooth 5.3, cellulära modeller med 5G-stöd.</li>
-                                <li>Stöd för Apple Pencil (1:a generationen) och Magic Keyboard Folio.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/ipad_a_16_2026.webp" alt="iPad elfte generationen med A16 Bionic-chip"
-                                width="473" height="528" loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-10">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/ipad-11/" target="_blank" class="btn">Köp hos Apple:
-                                    Från 4 495
-                                    kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
+                        <!-- Sektion för användarvillkor -->
+                        <fieldset class="form-fieldset">
+                            <legend>Villkor</legend>
+                            <div class="form-group">
+                                <p class="terms-text">Genom att skicka in din fråga godkänner du att iFuture
+                                    behandlar dina personuppgifter i syfte att besvara din förfrågan. Dina uppgifter
+                                    delas inte med tredje part och raderas när ärendet är avslutat.</p>
+                                <label class="radio-label">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    Jag godkänner att iFuture behandlar mina personuppgifter. <span
+                                        class="required-star" aria-hidden="true">*</span>
+                                </label>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </fieldset>
 
-            <!-- Underrubrik för tillbehör år 2026 -->
-            <div class="title_2">
-                <h3>Tillbehör:</h3>
-            </div>
-
-            <!-- Produktrad: Tillbehör 2026 -->
-            <div class="products-row">
-
-                <!-- Produktkort: Studio Display XDR -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>Studio Display XDR</h3>
-                    </div>
-                    <div class="fact">
-                        <p>Studio Display XDR är Apples mest avancerade skärm och ersätter den tidigare Pro Display
-                            XDR.
-                            Den har en 27-tums 5K Retina XDR-skärm med mini-LED-bakgrundsbelysning, upp till 2 000
-                            nits
-                            peak HDR-ljusstyrka och 120 Hz uppdateringsfrekvens med Adaptive Sync. Den riktar sig
-                            till
-                            proffs inom HDR-videoredigering, 3D-rendering och diagnostisk radiologi och levereras
-                            med
-                            ett höj- och sänkbart stativ som standard.
+                        <!-- Obligatoriska fält-förklaring -->
+                        <p class="required-note"><span class="required-star" aria-hidden="true">*</span> Obligatoriska
+                            fält
                         </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-11">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>27″ 5K Retina XDR-skärm (5 120 x 2 880 pixlar, 218 ppi) med mini-LED och 2 304
-                                    lokala
-                                    dimmerzoner.</li>
-                                <li>Upp till 1 000 nits SDR-ljusstyrka och 2 000 nits peak HDR-ljusstyrka; 1 000 000:1
-                                    kontrastförhållande.</li>
-                                <li>120 Hz uppdateringsfrekvens med Adaptive Sync (47-120 Hz variabelt).</li>
-                                <li>P3 och Adobe RGB wide color gamut med stöd för 1 miljard färger och True Tone.</li>
-                                <li>12 MP Center Stage-kamera med stöd för Desk View; studio-mikrofoner och
-                                    sex-högtalar-system
-                                    med Spatial Audio.</li>
-                                <li>Två Thunderbolt 5-portar (upp till 140 W laddning) och två USB-C-portar.</li>
-                                <li>Höj- och sänkbart stativ ingår; nano-texture-glas tillgängligt som tillval.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/studio_display_xdr_2026.webp" width="543" height="459" loading="lazy"
-                                alt="Studio Display XDR med 27-tums 5K Retina XDR-skärm">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-11">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/studio-display-xdr/" target="_blank" class="btn">Köp
-                                    hos
-                                    Apple: Från 39 995 kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Produktkort: Studio Display -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>Studio Display</h3>
-                    </div>
-                    <div class="fact">
-                        <p>Nya Studio Display 2026 är en uppdatering av 2022 års original och passar användare som
-                            vill
-                            ha en professionell Apple-skärm utan Studio Display XDR:s premiumpris. Den har samma
-                            27-tums 5K Retina-skärm som föregångaren men kompletteras nu med en uppgraderad 12 MP
-                            Center Stage-kamera med stöd för Desk View, kraftfull Thunderbolt 5-anslutning och ett
-                            förbättrat sexhögtalarsystem med 30 % djupare bas.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-12">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>27″ 5K Retina-skärm (5 120 x 2 880 pixlar, 218 ppi) med LCD-panel, 600 nits
-                                    ljusstyrka och
-                                    60 Hz uppdateringsfrekvens.</li>
-                                <li>P3 wide color, True Tone och stöd för 1 miljard färger.</li>
-                                <li>12 MP Center Stage-kamera med förbättrad bildkvalitet och stöd för Desk View.</li>
-                                <li>Studio-mikrofonarray med riktad strålformning och sex-högtalar-system med Spatial
-                                    Audio.
-                                </li>
-                                <li>Två Thunderbolt 5-portar (upp till 96 W laddning) och två USB-C-portar.</li>
-                                <li>Höjdjusterbart stativ tillgängligt som tillval (+5 000 kr) och nano-texture-glas
-                                    tillgängligt som tillval (+4 000 kr).</li>
-                                <li>Inkluderar Thunderbolt 5 Pro-kabel i förpackningen.</li>
-                            </ul>
+                        <!-- Knappar -->
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-submit">Skicka fråga</button>
+                            <button type="reset" class="btn btn-reset">Nollställ</button>
                         </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/studio_display_2026.webp" alt="Studio Display med 27-tums 5K Retina-skärm"
-                                width="564" height="442" loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-12">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/studio-display/" target="_blank" class="btn">Köp hos
-                                    Apple: Från 18
-                                    995 kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Sektion för Apple-produkter år 2025 -->
-        <section class="products-section">
+                    </form>
 
-            <!-- Årsrubrik 2025 -->
-            <div class="title_2">
-                <h2>Apple-produkter 2025</h2>
-            </div>
+                    <!-- Bekräftelseskärm som visas efter att formuläret skickats -->
+                    <div id="question-result" style="display:none;">
+                        <h3>Tack för din fråga! ✅</h3>
+                        <p>En av våra medarbetare kommer att kontakta dig inom <strong>2 arbetsdagar</strong> via den
+                            e-postadress eller det telefonnummer som du har angett.</p>
+                        <div id="question-summary"></div>
+                        <!-- Knapp för att gå tillbaka till formuläret -->
+                        <button class="btn btn-back" id="btn-back">Gå tillbaka</button>
+                    </div>
 
-            <!-- Underrubrik för iPhone 17-serien 2025 -->
-            <div class="title_2">
-                <h3>iPhone 17-serien:</h3>
-            </div>
-
-            <!-- Produktrad: iPhone 17-serien 2025 -->
-            <div class="products-row">
-
-                <!-- Produktkort: iPhone 17 Pro Max -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>iPhone 17 Pro Max</h3>
-                    </div>
-                    <div class="fact">
-                        <p>iPhone 17 Pro Max är Apples största och mest avancerade iPhone 2025 med ett 6,9-tums
-                            skärmformat som är perfekt för innehållsskapare och användare som prioriterar maximal
-                            skärmyta. Den har samma professionella kamerauppsättning som iPhone 17 Pro med tre
-                            48 MP-sensorer och upp till 8x optisk zoom, men erbjuder även längre batteritid och
-                            större
-                            displayområde. Unibody-höljet i varmpressat aluminium ger både premiumkänsla och
-                            hållbarhet.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-13">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>6,9″ Super Retina XDR OLED-skärm med ProMotion (120 Hz) och upplösningen 2 868 × 1
-                                    320
-                                    pixlar.</li>
-                                <li>A19 Pro-chip med ångkylning för hög kontinuerlig prestanda vid krävande
-                                    arbetsflöden.</li>
-                                <li>Trippelkamerasystem: 48 MP Fusion huvudkamera + 48 MP ultra-vidvinkel + 48 MP
-                                    telefoto med
-                                    upp till 8x optisk zoom.</li>
-                                <li>Unibody-design i varmpressat aluminium, Ceramic Shield 2-front och IP68-klassad
-                                    vattentålighet (6 m i 30 min).</li>
-                                <li>Batteritid upp till 35 timmars videouppspelning, 50 % laddning på ca 20 min med 20
-                                    W-adapter
-                                    eller snabbare.</li>
-                                <li>Lagring från 256 GB (upp till 1 TB), iOS 26 och fullt stöd för Apple Intelligence.
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/iphone_17_pro_max_2025.webp" alt="iPhone 17 Pro Max" width="448"
-                                height="553" loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-13">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/iphone-17-pro/" target="_blank" class="btn">Köp hos
-                                    Apple: Från 16
-                                    995 kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Produktkort: iPhone 17 Pro -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>iPhone 17 Pro</h3>
-                    </div>
-                    <div class="fact">
-                        <p>Denna toppmodell från Apple erbjuder en proffsig kamerauppsättning med tre 48 MP-Fusion
-                            sensorer och en optisk zoom upp till 8x, vilket är något som hittills inte funnits i
-                            någon
-                            iPhone tidigare. Den har ett unibody-hölje i varmpressat aluminium vilket ger en hög
-                            tålighet. Tillsammans med det nya A19 Pro-chippet och stöd för avancerade arbetsflöden
-                            riktar den sig till både innehållsskapare och krävande användare.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-14">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>6,3″ Super Retina XDR OLED-skärm med upplösningen 2 622 × 1 206 pixlar.</li>
-                                <li>A19 Pro-chip med ångkylning och hög kontinuerlig prestanda.</li>
-                                <li>Trippelkamerasystem: 48 MP huvud + ultra-vidvinkel + telefoto med upp till 8x optisk
-                                    zoom.
-                                </li>
-                                <li>Unibody-design i varmpressat aluminium, Ceramic Shield 2-front och IP68-klassad
-                                    vattentålighet.</li>
-                                <li>Batteritid upp till 31 timmars videouppspelning, 50 % på ca 20 min snabbladdning.
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/iphone_17_pro_2025.webp" alt="iPhone 17 Pro" width="676" height="837"
-                                loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-14">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/iphone-17-pro/" target="_blank" class="btn">Köp hos
-                                    Apple: Från 14
-                                    995 kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Produktkort: iPhone 17 -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>iPhone 17</h3>
-                    </div>
-                    <div class="fact">
-                        <p>Denna modell erbjuder en uppgraderad kärnteknik från föregångaren, bland annat chippet
-                            A19
-                            och en 6,3″ 120 Hz ProMotion-skärm. Kamerauppsättningen består av två 48 MP kameror
-                            vilket
-                            gör den till ett väldigt bra val för den som vill ha mycket iPhone-kvalitet utan
-                            Pro-priset.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-15">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>6,3″ OLED-skärm med ProMotion (120 Hz).</li>
-                                <li>A19-chip med neurala acceleratorer.</li>
-                                <li>Dubbelkamera: 48 MP huvudkamera + 48 MP ultra-vidvinkel.</li>
-                                <li>Snabbladdning - 50 % på ca 20 min.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/iphone_17_2025.webp" alt="iPhone 17" width="657" height="820"
-                                loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-15">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/iphone-17/" target="_blank" class="btn">Köp hos Apple:
-                                    Från 10 995
-                                    kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Produktkort: iPhone Air -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>iPhone Air</h3>
-                    </div>
-                    <div class="fact">
-                        <p>En ny sorts iPhone-kategori för Apple - mycket tunnare och lättare än tidigare modeller,
-                            med
-                            titanram och Ceramic Shield-glas, samtidigt som den delar mycket av den kraftfulla
-                            tekniken
-                            från Pro-modellerna.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-16">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>Titanram, tunn profil (5,6 mm) och vikt ca 165 g.</li>
-                                <li>6,5″ Super Retina XDR OLED-skärm med 120 Hz.</li>
-                                <li>A19 Pro-chip, energieffektiv prestanda.</li>
-                                <li>48 MP huvudkamera, Center Stage-selfiekamera.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/iphone_air_2025.webp" alt="iPhone Air" width="664" height="819"
-                                loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-16">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/iphone-air/" target="_blank" class="btn">Köp hos
-                                    Apple: Från 13 995
-                                    kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Underrubrik för MacBook och iPad 2025 -->
-            <div class="title_2">
-                <h3>MacBook och iPad:</h3>
-            </div>
-
-            <!-- Produktrad: MacBook och iPad 2025 -->
-            <div class="products-row">
-
-                <!-- Produktkort: MacBook Pro (M5) -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>MacBook Pro (M5)</h3>
-                    </div>
-                    <div class="fact">
-                        <p>MacBook Pro 2025 med M5-chip är en kraftfull bärbar dator som riktar sig till
-                            professionella
-                            användare som behöver hög prestanda för videoredigering, kodning och kreativt arbete,
-                            men
-                            inte kräver den absolut högsta prestandan från M5 Pro/Max-chipsen. Den erbjuder utmärkt
-                            batteritid, en strålande Liquid Retina XDR-skärm och Thunderbolt 5-anslutningar i ett
-                            kompakt format.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-17">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>M5-chip med 10-kärnig CPU, upp till 10-kärnig GPU och Neural Accelerator i varje
-                                    kärna.</li>
-                                <li>14,2″ Liquid Retina XDR-skärm med ProMotion (upp till 120 Hz) och upp till 1 000
-                                    nits
-                                    SDR-ljusstyrka.</li>
-                                <li>Lagring startar på 512 GB (upp till 2 TB konfigurerbart), upp till 32 GB unified
-                                    memory.
-                                </li>
-                                <li>Batteritid upp till 22 timmars videoströmning.</li>
-                                <li>Tre Thunderbolt 5-portar, HDMI 2.1 och SD-kortläsare.</li>
-                                <li>Wi-Fi 7 och Bluetooth 6.</li>
-                                <li>Magic Keyboard med Touch ID och stor styrplatta med Force Touch.</li>
-                                <li>Tillgänglig i Space Gray och Silver.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/macbook_pro_m5_2025.webp" alt="MacBook Pro med M5-chip" width="639"
-                                height="390" loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-17">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/macbook-pro/" target="_blank" class="btn">Köp hos
-                                    Apple: Från 21
-                                    995 kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Produktkort: MacBook Air (M4) -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>MacBook Air (M4)</h3>
-                    </div>
-                    <div class="fact">
-                        <p>Den nya MacBook Air med M4-chip är världens mest sålda bärbara dator och levererar
-                            kraftfull
-                            prestanda i ett tunt och lätt format. Med upp till 18 timmars batteritid och en ny 12 MP
-                            Center Stage-kamera är den ett utmärkt val för studier, webbutveckling och kreativt
-                            arbete.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-18">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>13,6″ Liquid Retina-skärm med IPS-teknik och 2 560 × 1 664 pixlars upplösning vid
-                                    224 ppi.
-                                </li>
-                                <li>M4-chip med 10-kärnig CPU, upp till 10-kärnig GPU och stöd för upp till 32 GB
-                                    unified
-                                    memory.</li>
-                                <li>Upp till 18 timmars batteritid; stöd för upp till två externa skärmar utöver den
-                                    inbyggda.
-                                </li>
-                                <li>Lagring från 256 GB (upp till 2 TB konfigurerbart); RAM startar på 16 GB.</li>
-                                <li>Magic Keyboard med Touch ID, MagSafe 3-laddning och två Thunderbolt 4/USB 4-portar.
-                                    Wi-Fi 6E
-                                    och Bluetooth 5.3.</li>
-                                <li>Tillgänglig i färgerna "Sky Blue", "Midnight", "Starlight" och "Silver".</li>
-                                <li>Vikt 1,24 kg.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/macbook_air_m4_2025.webp" alt="MacBook Air med M4-chip" width="1399"
-                                height="847" loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-18">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/macbook-air/" target="_blank" class="btn">Köp hos
-                                    Apple: Från 13
-                                    495 kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Produktkort: iPad Pro (M5) -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>iPad Pro (M5)</h3>
-                    </div>
-                    <div class="fact">
-                        <p>iPad Pro 2025 med M5-chip är Apples kraftfullaste surfplatta och riktar sig till
-                            professionella användare inom design, videoredigering, 3D-modellering och andra krävande
-                            arbetsflöden. Den har en revolutionerande OLED-skärm med Tandem OLED-teknik som ger
-                            exceptionell ljusstyrka och kontrast, samtidigt som den är otroligt tunn och lätt. Med
-                            stöd
-                            för Apple Pencil Pro och Magic Keyboard blir den ett komplett arbetsverktyg.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-19">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>M5-chip med 10-kärnig CPU, upp till 10-kärnig GPU och Neural Accelerator i varje
-                                    kärna.</li>
-                                <li>11″ eller 13″ Ultra Retina XDR OLED-skärm med Tandem OLED-teknik, ProMotion (120
-                                    Hz), upp
-                                    till 1 600 nits peak HDR-ljusstyrka.</li>
-                                <li>Lagring från 256 GB (upp till 2 TB), upp till 16 GB unified memory.</li>
-                                <li>Batteritid upp till 10 timmars webbanvändning eller videouppspelning.</li>
-                                <li>Fyra studiokvalitetsmikrofoner och fyra högtalarsystem med stöd för Spatial Audio.
-                                </li>
-                                <li>Thunderbolt 5/USB 4-anslutning, Wi-Fi 7 och Bluetooth 6. Cellulära modeller med
-                                    5G-stöd.
-                                </li>
-                                <li>Tunn design (5,1 mm för 13-tums modellen), stöd för Apple Pencil Pro och Magic
-                                    Keyboard.
-                                </li>
-                                <li>Tillgänglig i Space Gray och Silver.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/ipad_pro_m5_2025.webp" alt="iPad Pro med M5-chip" width="468" height="533"
-                                loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-19">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/ipad-pro/" target="_blank" class="btn">Köp hos Apple:
-                                    Från 12 995
-                                    kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Produktkort: iPad Air (M3) -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>iPad Air (M3)</h3>
-                    </div>
-                    <div class="fact">
-                        <p>iPad Air M3 är sjunde generationens iPad Air och efterträder iPad Air med M2-chip. Den
-                            passar
-                            utmärkt för studier, design och kreativt arbete tack vare sin tunna design och
-                            kraftfulla
-                            prestanda.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-20">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>11″ Liquid Retina-skärm med IPS-teknik och 2 360 × 1 640 pixlars upplösning; 60 Hz
-                                    uppdateringsfrekvens, True Tone och P3 wide color.</li>
-                                <li>M3-chip med 8-kärnig CPU, 9-kärnig GPU och 16-kärnig Neural Engine med stöd för
-                                    hårdvaruaccelererad ray tracing.</li>
-                                <li>8 GB unified memory; lagring från 128 GB (upp till 1 TB).</li>
-                                <li>Batteritid upp till 10 timmars webbanvändning eller videouppspelning.</li>
-                                <li>Stöd för Apple Pencil Pro och ny Magic Keyboard med funktionsrad och större
-                                    styrplatta.</li>
-                                <li>Tunn (6,1 mm) och lätt (~462 g för 11-tums Wi-Fi-modellen). Stöd för Apple
-                                    Intelligence.
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/ipad_air_m3_2025.webp" alt="iPad Air med M3-chip" width="754" height="829"
-                                loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-20">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/ipad-air/" target="_blank" class="btn">Köp hos Apple:
-                                    Från 7 795
-                                    kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Underrubrik för tillbehör år 2025 -->
-            <div class="title_2">
-                <h3>Tillbehör:</h3>
-            </div>
-
-            <!-- Produktrad: Tillbehör 2025 -->
-            <div class="products-row">
-
-                <!-- Produktkort: Apple Watch Series Ultra 3 -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>Apple Watch Series Ultra 3</h3>
-                    </div>
-                    <div class="fact">
-                        <p>Apple Watch Series Ultra 3 är Apples mest avancerade och robusta smartklocka, designad
-                            för
-                            extrema förhållanden och utomhusäventyr. Den har ett 49 mm titanium-hölje, safirkristall
-                            över skärmen och är certifierad enligt MIL-STD 810H för tålighet mot extrema
-                            temperaturer,
-                            stötar och höjder. Med avancerade GPS-funktioner, dykarläge upp till 100 m och upp till
-                            36 timmars batteritid passar den perfekt för bergsklättrare, dykare och
-                            ultramaratonlöpare.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-21">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>49 mm titanium-hölje med safirkristall och keramisk baksida, Action Button för snabb
-                                    åtkomst
-                                    till träning och funktioner.</li>
-                                <li>Always-On Retina-skärm med upp till 3 000 nits ljusstyrka - den klaraste Apple
-                                    Watch-skärmen
-                                    någonsin.</li>
-                                <li>S10-chip med 64-bitars dual-core processor och 4-kärnig Neural Engine.</li>
-                                <li>Batteritid upp till 36 timmars normal användning; upp till 72 timmar i lågströmläge.
-                                </li>
-                                <li>Precision dual-frequency GPS (L1 och L5) för extrem noggrannhet i utmanande terräng.
-                                </li>
-                                <li>Dykdator-certifierad upp till 100 m enligt EN13319; djupmätare och
-                                    vattentemperatursensor.
-                                </li>
-                                <li>WR100-vattentålighet, IP6X-dammtålig och MIL-STD 810H-certifierad.</li>
-                                <li>Siren på 86 decibel för nödsituationer, cellulär anslutning och 5G-stöd.</li>
-                                <li>EKG-applikation, syremätning, hypertensionsnotiser, sömnanalys och
-                                    kroppstempersensor.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/apple_watch_ultra_3_2025.webp" alt="Apple Watch Series Ultra 3 med, 49 mm"
-                                width="479" height="520" loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-21">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/apple-watch-ultra-3/" target="_blank" class="btn">Köp
-                                    hos Apple: Från 9 995 kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Produktkort: Apple Watch Series 11 -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>Apple Watch Series 11</h3>
-                    </div>
-                    <div class="fact">
-                        <p>Apple Watch Series 11 har ett S10-chip med 4-kärnig Neural Engine och introducerar nya
-                            hälsofunktioner som Sleep Score och hypertensionsnotiser. Batteritiden har förlängts
-                            till
-                            upp till 24 timmars normal användning och med bara 15 minuters laddning får du upp till
-                            8 timmars användning. Den passar perfekt för den som vill ha en fullutrustad smartklocka
-                            med fokus på hälsa och träning.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-22">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>Always-On Retina-skärm med upp till 2 000 nits ljusstyrka.</li>
-                                <li>Batteritid upp till 24 timmars normal användning; upp till 8 timmars användning
-                                    efter 15
-                                    minuters laddning.</li>
-                                <li>EKG-app, syremätning, hypertensionsnotiser och sömnanalys med Sleep Score (0-100).
-                                </li>
-                                <li>Vattentålig till 50 m enligt ISO-standard 22810:2010 (WR50) samt IP6X-dammtålig.
-                                </li>
-                                <li>5G-stöd, Ion-X-glas som är 2 gånger mer reptåligt än Series 10 samt djupmätare upp
-                                    till 6
-                                    m.</li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/apple_watch_series_11_2025.webp" alt="Apple Watch Series 11, 42 mm"
-                                width="837" height="844" loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-22">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/apple-watch-series-11/" target="_blank"
-                                    class="btn">Köp
-                                    hos Apple: Från 4 995 kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Produktkort: AirPods Pro 3 -->
-                <div class="product-item">
-                    <div class="title_3">
-                        <h3>AirPods Pro 3</h3>
-                    </div>
-                    <div class="fact">
-                        <p>AirPods Pro 3 är tredje generationens in-ear-hörlurar från Apple och fokuserar på
-                            förbättrad
-                            ljudkvalitet, kraftigare brusreducering och längre batteritid per laddning. För första
-                            gången kan AirPods Pro 3 mäta hjärtfrekvens och spåra över 50 träningstyper via
-                            Fitness-appen på iPhone.
-                        </p>
-                        <!-- Specifikationer -->
-                        <div class="product-specs" id="specs-23">
-                            <p class="specs-title">Funktioner:</p>
-                            <ul>
-                                <li>Upp till 8 timmars lyssning per laddning med ANC aktiverat; upp till 7,5 timmar med
-                                    Personalized Spatial Audio och dynamisk huvudspårning.</li>
-                                <li>Totalt upp till 24 timmars lyssning inklusive laddningsfodralet med ANC aktiverat.
-                                </li>
-                                <li>Upp till 10 timmars lyssning i transparensläge.</li>
-                                <li>Inbyggd hjärtfrekvenssensor med infraröd PPG-teknik för träningsspårning direkt i
-                                    Fitness-appen.</li>
-                                <li>IP57-klassad mot svett och vatten; ny design baserad på analys av över 10 000
-                                    3D-öronskanner
-                                    med fem öronstyckesstorlekar inklusive ett nytt XXS-alternativ.</li>
-                                <li>Rumsligt ljud med dynamisk huvudspårning, adaptiv EQ och MagSafe/USB-C-laddning.
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Bild och knappar -->
-                        <div class="product-bottom">
-                            <img src="images/airpods_pro_3_2025.webp" alt="AirPods Pro 3" width="600" height="600"
-                                loading="lazy">
-                            <div class="product-buttons">
-                                <button class="btn btn-las-mer" aria-expanded="false" data-target="specs-23">Läs
-                                    mer</button>
-                                <a href="https://www.apple.com/se/airpods-pro/" target="_blank" class="btn">Köp hos
-                                    Apple: 2
-                                    995 kr</a>
-                                <a href="price_matching.html" class="btn">Jämför priser</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
