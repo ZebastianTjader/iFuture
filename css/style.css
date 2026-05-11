@@ -2386,7 +2386,7 @@ body.dark-mode .btn-submit {
    Mobil: 375px och mindre (för att webbsidan ska visas korrekt i Chrome DevTools behöver man temporärt ändra max-width till 376px)
    ------------------------------------------------------------ */
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
 
     /* Hamburgerknappen visas och placeras längst till höger */
     .hamburger {
