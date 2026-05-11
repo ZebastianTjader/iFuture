@@ -1,19 +1,18 @@
 /* ============================================================
-   iFuture – script.js
-   Webbutveckling 1
+   iFuture - script.js
 
-   Innehåll (vecka 12):
-   - Läs mer-funktionalitet: visar och döljer Funktioner-boxen
-     för den valda produkten i dess produktkort.
-
-   Övrig funktionalitet implementeras under kommande veckor:
-   - Vecka 17: Mörkt läge, hamburgermeny, emoji-markering,
-                sökfunktion och PricesAPI-koppling.
+   Innehåll:
+   - Läs mer-funktionalitet: Visar och döljer Funktioner-boxen för den valda produkten i dess produktkort.
+   - Mörkt läge
+   - Hamburgermeny
+   - Emoji-markering
+   - Sökfunktion
+   - PricesAPI-koppling.
    ============================================================ */
 
 
 /* ------------------------------------------------------------
-   LÄS MER – TOGGLE FÖR FUNKTIONER-BOXEN
+   Läs mer - Toggle för funktioner-boxen:
    Varje "Läs mer"-knapp styr enbart Funktioner-boxen i
    sitt eget produktkort via attributet data-target.
    ------------------------------------------------------------ */
@@ -21,7 +20,7 @@
 /* Väntar tills hela sidan har laddats klart innan koden körs */
 document.addEventListener('DOMContentLoaded', function () {
     /* ----------------------------------------------------------
-       HAMBURGERMENY
+       Hamburgermeny
     ---------------------------------------------------------- */
     var hamburger = document.querySelector('.hamburger');
     var navMeny = document.getElementById('nav-menu');
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         /* ----------------------------------------------------------
-   PRODUKTSÖKNING – products.html
+   Produksöktning - products.html:
    Filtrerar produktkort i realtid medan användaren skriver.
    Döljer även tillhörande underrubriker (h3 i .title_2) och
    produktrader (.products-row) om alla kort i dem är dolda.
@@ -81,8 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 /* --------------------------------------------------
-                   Döljer tomma produktrader och deras underrubriker
-                   så att sidan inte får fula mellanrum vid filtrering
+                   Döljer tomma produktrader och deras underrubriker för att sidan inte ska få fula mellanrum vid filtrering
                 -------------------------------------------------- */
                 var produktRader = document.querySelectorAll('.products-row');
 
@@ -107,10 +105,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         /* ----------------------------------------------------------
-   MÖRKT LÄGE – Togglar dark-mode på body
-   Valet sparas i localStorage så det finns kvar vid
-   nästa besök eller omladdning av sidan.
----------------------------------------------------------- */
+           Mörkt läge - Togglar dark-mode på body:
+           Valet sparas i localStorage, i syfte att det ska finnas kvar vid nästa besök eller omladdning av sidan.
+        ---------------------------------------------------------- */
 
         var darkKnapp = document.querySelector('.change_color');
 
@@ -198,9 +195,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // =====================================================
-// DYNAMISK LABEL – Ställa frågor (questions.html)
-// Uppdaterar "Vad undrar du om ...?" när användaren
-// väljer en enhet i select-listan
+// Dynamisk label - Ställa frågor (questions.html)
+// Uppdaterar "Vad undrar du om ...?" när användaren väljer en enhet i select-listan
 // =====================================================
 
 // Hämtar select-listan och label-elementet
@@ -240,7 +236,7 @@ if (deviceSelect && questionLabel) {
 }
 
 // =====================================================
-// FORMULÄRVALIDERING & BEKRÄFTELSESKÄRM – questions.html
+// Formulärvalidering och bekräftelseskärm - questions.html
 // =====================================================
 
 // Hämtar formuläret
@@ -312,9 +308,8 @@ if (questionForm) {
 }
 
 /* ----------------------------------------------------------
-   EMOJI-MARKERING – Markera nyheter som lästa
-   Tillståndet sparas i localStorage så att markeringen
-   finns kvar även om användaren laddar om sidan.
+   Emoji-markering - Markera nyheter som lästa:
+   Tillståndet sparas i localStorage så att markeringen finns kvar även om användaren laddar om sidan.
 ---------------------------------------------------------- */
 
 /* Hämtar alla emoji-knappar på sidan */
@@ -342,12 +337,12 @@ emojiKnappar.forEach(function (knapp) {
         var nuLäst = localStorage.getItem(nyckel) === 'true';
 
         if (nuLäst) {
-            /* Avmarkerar – tar bort från localStorage */
+            /* Avmarkerar - tar bort från localStorage */
             localStorage.removeItem(nyckel);
             knapp.textContent = '✓';
             knapp.setAttribute('aria-label', 'Markera nyhet som läst');
         } else {
-            /* Markerar som läst – sparar i localStorage */
+            /* Markerar som läst - sparar i localStorage */
             localStorage.setItem(nyckel, 'true');
             knapp.textContent = '✅';
             knapp.setAttribute('aria-label', 'Nyhet markerad som läst');
