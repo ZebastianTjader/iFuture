@@ -236,7 +236,14 @@ main {
     margin-bottom: 16px;
 }
 
-/* Underrubrik för produktkategorier (h3 i .title_2) */
+/* h1 är något större än h2 för tydlig hierarki */
+.title_2 h1 {
+    /* Något större textstorlek än h2 */
+    font-size: 1.8rem;
+}
+
+/* Underrubrik för produktkategorier (h2 och h3 i .title_2) */
+.title_2 h2,
 .title_2 h3 {
     /* Displaytypsnitt */
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
@@ -1722,7 +1729,7 @@ body.dark-mode .pm-error p {
 }
 
 /* Rubrik i bekräftelseskärmen */
-#question-result h3 {
+#question-result h2 {
     /* Större textstorlek för rubriken */
     font-size: 1.6rem;
     /* Avstånd nedanför rubriken */
