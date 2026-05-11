@@ -217,13 +217,12 @@ main {
     padding: 32px 24px 48px;
 }
 
-/* Sektionsrubrik (h1 och h2) */
-.title_2 h1,
-.title_2 h2 {
+/* Sektionsrubrik (h1) */
+.title_2 h1 {
     /* Displaytypsnitt */
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
     /* Stor textstorlek */
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     /* Fetstil */
     font-weight: 700;
     /* Nästan svart textfärg */
@@ -236,21 +235,14 @@ main {
     margin-bottom: 16px;
 }
 
-/* h1 är något större än h2 för tydlig hierarki */
-.title_2 h1 {
-    /* Något större textstorlek än h2 */
-    font-size: 1.8rem;
-}
-
-/* Underrubrik för produktkategorier (h2 och h3 i .title_2) */
-.title_2 h2,
-.title_2 h3 {
+/* Underrubrik för produktkategorier (h2 i .title_2) */
+.title_2 h2 {
     /* Displaytypsnitt */
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
     /* Textstorlek */
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     /* Halvfet stil */
-    font-weight: 600;
+    font-weight: 700;
     /* Mörkgrå textfärg */
     color: #3a3a3c;
     /* Centrerad underrubrik */
@@ -409,10 +401,13 @@ body.dark-mode .fact a {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Produktkortsrubrik (h3 i .title_3) */
+/* Produktkortsrubrik (h2 och h3 i .title_3) */
+.title_3 h2,
 .title_3 h3 {
     /* Displaytypsnitt */
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    /* Textstorlek - mindre än sektionsrubrikens 1.8rem */
+    font-size: 1.1rem;
     /* Indrag till vänster */
     margin-left: 7px;
     /* Avstånd nedanför rubriken */
