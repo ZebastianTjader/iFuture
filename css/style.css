@@ -217,7 +217,8 @@ main {
     padding: 32px 24px 48px;
 }
 
-/* Sektionsrubrik (h2) */
+/* Sektionsrubrik (h1 och h2) */
+.title_2 h1,
 .title_2 h2 {
     /* Displaytypsnitt */
     font-family: 'Nunito', Arial, Helvetica, sans-serif;
